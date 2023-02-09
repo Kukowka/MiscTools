@@ -1,0 +1,15 @@
+C:\kukowka\MiscTools\AbbRapidPreUpload\AbbRapidPreUpload\bin\Release\net5.0\win-x64\AbbRapidPreUpload.exe
+C:\kukowka\MiscTools\AbbRapidPreUpload\AbbRapidPreUpload\bin\Release\net5.0\win-x64\AbbRapidPreUpload.deps.json
+C:\kukowka\MiscTools\AbbRapidPreUpload\AbbRapidPreUpload\bin\Release\net5.0\win-x64\AbbRapidPreUpload.runtimeconfig.json
+C:\kukowka\MiscTools\AbbRapidPreUpload\AbbRapidPreUpload\bin\Release\net5.0\win-x64\AbbRapidPreUpload.runtimeconfig.dev.json
+C:\kukowka\MiscTools\AbbRapidPreUpload\AbbRapidPreUpload\bin\Release\net5.0\win-x64\AbbRapidPreUpload.dll
+C:\kukowka\MiscTools\AbbRapidPreUpload\AbbRapidPreUpload\bin\Release\net5.0\win-x64\ref\AbbRapidPreUpload.dll
+C:\kukowka\MiscTools\AbbRapidPreUpload\AbbRapidPreUpload\bin\Release\net5.0\win-x64\AbbRapidPreUpload.pdb
+C:\kukowka\MiscTools\AbbRapidPreUpload\AbbRapidPreUpload\obj\Release\net5.0\win-x64\AbbRapidPreUpload.GeneratedMSBuildEditorConfig.editorconfig
+C:\kukowka\MiscTools\AbbRapidPreUpload\AbbRapidPreUpload\obj\Release\net5.0\win-x64\AbbRapidPreUpload.AssemblyInfoInputs.cache
+C:\kukowka\MiscTools\AbbRapidPreUpload\AbbRapidPreUpload\obj\Release\net5.0\win-x64\AbbRapidPreUpload.AssemblyInfo.cs
+C:\kukowka\MiscTools\AbbRapidPreUpload\AbbRapidPreUpload\obj\Release\net5.0\win-x64\AbbRapidPreUpload.csproj.CoreCompileInputs.cache
+C:\kukowka\MiscTools\AbbRapidPreUpload\AbbRapidPreUpload\obj\Release\net5.0\win-x64\AbbRapidPreUpload.dll
+C:\kukowka\MiscTools\AbbRapidPreUpload\AbbRapidPreUpload\obj\Release\net5.0\win-x64\ref\AbbRapidPreUpload.dll
+C:\kukowka\MiscTools\AbbRapidPreUpload\AbbRapidPreUpload\obj\Release\net5.0\win-x64\AbbRapidPreUpload.pdb
+C:\kukowka\MiscTools\AbbRapidPreUpload\AbbRapidPreUpload\obj\Release\net5.0\win-x64\AbbRapidPreUpload.genruntimeconfig.cache
