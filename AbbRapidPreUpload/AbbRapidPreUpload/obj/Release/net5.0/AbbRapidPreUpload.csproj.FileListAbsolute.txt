@@ -13,3 +13,4 @@ C:\kukowka\MiscTools\AbbRapidPreUpload\AbbRapidPreUpload\obj\Release\net5.0\AbbR
 C:\kukowka\MiscTools\AbbRapidPreUpload\AbbRapidPreUpload\obj\Release\net5.0\ref\AbbRapidPreUpload.dll
 C:\kukowka\MiscTools\AbbRapidPreUpload\AbbRapidPreUpload\obj\Release\net5.0\AbbRapidPreUpload.pdb
 C:\kukowka\MiscTools\AbbRapidPreUpload\AbbRapidPreUpload\obj\Release\net5.0\AbbRapidPreUpload.genruntimeconfig.cache
+C:\kukowka\MiscTools\AbbRapidPreUpload\AbbRapidPreUpload\obj\Release\net5.0\AbbRapidPreUpload.csproj.AssemblyReference.cache

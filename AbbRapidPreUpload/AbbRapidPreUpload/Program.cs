@@ -15,7 +15,7 @@ namespace AbbRapidPreUpload
         {
             RunTmsRefactoringCode(args);
             RunOriginalBat(args[0]);
-            Thread.Sleep(1); //necessary, otherwise Process Simulate say it does not work
+            //Thread.Sleep(1); //necessary, otherwise Process Simulate say it does not work
         }
 
         private static void RunTmsRefactoringCode(string[] args)
