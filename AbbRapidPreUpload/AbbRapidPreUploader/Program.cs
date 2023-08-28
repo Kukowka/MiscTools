@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace AbbRapidPreUploader
 {
@@ -19,10 +20,10 @@ namespace AbbRapidPreUploader
             }
             catch (Exception e)
             {
+                Console.WriteLine(string.Join(Environment.NewLine, args));
                 Console.WriteLine(e);
                 Console.ReadLine();
             }
-
 
             Console.WriteLine(Environment.NewLine + "Finished!");
         }
@@ -36,10 +37,14 @@ namespace AbbRapidPreUploader
 
             var volvoUploadChanger = new VolvoTruckUplaodChanger(fileManager);
 
-            if (volvoUploadChanger.HasSpotDataDefsInText(uploadFileContent))
+            if (volvoUploadChanger.ShouldFixSyntax(uploadFileContent))
             {
                 fileManager.FileCreateFileBackup(uploadFilePath);
-                var fileContentAfterChanges = volvoUploadChanger.FixSyntax(uploadFileContent);
+                var fileContentAfterChanges = volvoUploadChanger.FixSyntax(uploadFileContent, uploadFilePath);
+
+                //Console.WriteLine(fileContentAfterChanges);
+                //Console.WriteLine(uploadFilePath);
+
                 fileManager.FileSaveAllText(fileContentAfterChanges, uploadFilePath);
             }
         }

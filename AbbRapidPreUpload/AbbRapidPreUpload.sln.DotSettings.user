@@ -4,6 +4,9 @@
     &lt;TestId&gt;NUnit3x::DB3A19EC-415F-48E1-A197-1A408901D704::.NETFramework,Version=v4.6.1::AbbRapidPreUploader.Tests.PsTempFileReaderTests.GetUploadFilePath_Should_Return_UploadFilePath&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;NUnit3x::DB3A19EC-415F-48E1-A197-1A408901D704::.NETFramework,Version=v4.6.1::AbbRapidPreUploader.Tests.VolvoTruckUplaodChangerTests.FixSyntaxTest&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;NUnit3x::DB3A19EC-415F-48E1-A197-1A408901D704::.NETFramework,Version=v4.6.1::AbbRapidPreUploader.Tests.VolvoTruckUplaodChangerTests.HasSpotDataDefsInFile&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::6C8378AA-A3F4-419A-AD16-2E902EFBF53F::.NETFramework,Version=v4.5.2::TMS_UtilsTests.Utils.BackupReading.BackupReaders.ABB.Std_BR_ABBPorscheProcReaderTest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::6C8378AA-A3F4-419A-AD16-2E902EFBF53F::.NETFramework,Version=v4.5.2::TMS_UtilsTests.Utils.BackupReading.Backup.ABB.AbbLocalDefs.MNU_AbbBackupTests.GetSysFilesFromSysModDirTest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::6C8378AA-A3F4-419A-AD16-2E902EFBF53F::.NETFramework,Version=v4.5.2::TMS_UtilsTests.Utils.BackupReading.BackupReaders.ABB.Std_BR_AbbVolvoTruckBackupReaderTests.CheckPointsFoundInProc&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
 	<s:Boolean x:Key="/Default/UserDictionary/Words/=splitted/@EntryIndexedValue">True</s:Boolean></wpf:ResourceDictionary>

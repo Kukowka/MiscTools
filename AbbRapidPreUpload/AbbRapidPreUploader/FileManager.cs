@@ -14,7 +14,7 @@ namespace AbbRapidPreUploader
         /// <returns>The path to the created backup file.</returns>
         public string FileCreateFileBackup(string filePath)
         {
-            
+
             try
             {
                 // Check if the file exists at the specified path
@@ -30,7 +30,8 @@ namespace AbbRapidPreUploader
                 string backupFilePath = Path.Combine(directory, backupFileName);
 
                 // Copy the file to the backup file path
-                File.Copy(filePath, backupFilePath);
+                if (!File.Exists(backupFilePath))
+                    File.Copy(filePath, backupFilePath);
 
                 return backupFilePath;
             }
