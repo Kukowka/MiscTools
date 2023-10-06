@@ -9,6 +9,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VolvoTruckAbbRapidPreUpload
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VolvoTruckAbbRapidPreUploaderTests", "AbbRapidPreUploaderTests\VolvoTruckAbbRapidPreUploaderTests.csproj", "{DB3A19EC-415F-48E1-A197-1A408901D704}"
+	ProjectSection(ProjectDependencies) = postProject
+		{9A06BA3C-926B-4ED7-AF9E-E127693B4D5B} = {9A06BA3C-926B-4ED7-AF9E-E127693B4D5B}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TMS_Utils", "..\..\TMS_Tools\TMS_PS_add-ins\TMS_Utils_git\TMS_Utils\TMS_Utils.csproj", "{9A06BA3C-926B-4ED7-AF9E-E127693B4D5B}"
 EndProject

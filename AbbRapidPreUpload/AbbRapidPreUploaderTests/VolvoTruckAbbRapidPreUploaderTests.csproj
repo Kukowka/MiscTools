@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>AbbRapidPreUploaderTests</RootNamespace>
     <AssemblyName>AbbRapidPreUploaderTests</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -95,6 +95,10 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="TestFiles\FH24BSegmentAOrg.mod" />
+    <Content Include="TestFiles\FH24BSegmentResult.mod" />
+    <Content Include="TestFiles\FML2H3SegmentOrg.mod" />
+    <Content Include="TestFiles\FML2H3SegmentResult.mod" />
     <Content Include="TestFiles\P2540SegmentResult.mod" />
     <Content Include="TestFiles\P2540SegmentOrg.mod" />
     <Content Include="TestFiles\P2545L1ESegmentOrg.mod" />

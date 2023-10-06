@@ -23,6 +23,10 @@ namespace AbbRapidPreUploader.Tests
             {
                 yield return new TestCaseData("P2545L1ESegmentOrg.mod", "P2545L1ESegmentResult.mod");
                 yield return new TestCaseData("P2540SegmentOrg.mod", "P2540SegmentResult.mod");
+                yield return new TestCaseData("FML2H3SegmentOrg.mod", "FML2H3SegmentResult.mod");
+                yield return new TestCaseData("FH24BSegmentAOrg.mod", "FH24BSegmentResult.mod");
+
+
             }
         }
 
@@ -35,7 +39,6 @@ namespace AbbRapidPreUploader.Tests
             var inputFilePath = TestUtils.GetFilePathInTestProject(inputInnerFilePath);
             var fileContent = File.ReadAllText(inputFilePath);
             var expectedFilePath = TestUtils.GetFilePathInTestProject(outputInnerFilePath);
-            var expectedContent = File.ReadAllText(expectedFilePath);
 
             // Act
             sut.ShouldFixSyntax(fileContent);
@@ -44,6 +47,7 @@ namespace AbbRapidPreUploader.Tests
             //File.WriteAllText(expectedFilePath, result);
 
             // Assert
+            var expectedContent = File.ReadAllText(expectedFilePath);
             Assert.AreEqual(expectedContent, result);
         }
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using TMS_Utils.Utils.BackupReading.Backup.ABB;
+using TMS_Utils.Utils.BackupReading.Backup.ABB.AbbLocalDefs;
 using TMS_Utils.Utils.BackupReading.Backup.BackupProc;
 using TMS_Utils.Utils.BackupReading.BackupReaders.ABB;
 using TMS_Utils.Utils.Misc;
@@ -19,6 +20,7 @@ namespace AbbRapidPreUploader
     {
         private readonly IFileManager _fileManager;
         private List<IStd_BR_BackupProc> _procesInFile;
+        private Std_BR_AbbVolvoTruckSyntaxFixer _volvoTruckSyntaxFixer = new Std_BR_AbbVolvoTruckSyntaxFixer();
 
         private const string SPOT_DATA_BEGIN_REG_EX = @".*spotdata.*:=";
         private const string VALUE_IN_BRACKET_REGEX = @"\[.*\];";
@@ -33,10 +35,10 @@ namespace AbbRapidPreUploader
 
         public bool ShouldFixSyntax(string uploadFileContent)
         {
-            var shouldCorrectSpotDefs = HasTextWronSpotDef(uploadFileContent);
+            var shouldCorrectSpotDefs = _volvoTruckSyntaxFixer.Has2CorrectSyntax(uploadFileContent);
 
             var reader = new Std_BR_ABBPorscheProcReader();
-            _procesInFile = reader.ReadAllProcPrgInModFile(uploadFileContent, "");
+            _procesInFile = reader.ReadAllProcPrgInModFile(uploadFileContent, "", out _);
 
             if (shouldCorrectSpotDefs)
                 return true;
@@ -47,17 +49,11 @@ namespace AbbRapidPreUploader
             return false;
         }
 
-        private static bool HasTextWronSpotDef(string uploadFileContent)
-        {
-            var withoutWhiteSigns = uploadFileContent.Replace(" ", "");
-            var shouldCorrectSpotDefs = Regex.IsMatch(withoutWhiteSigns, SPOT_DATA_REG_EX);
-            return shouldCorrectSpotDefs;
-        }
 
 
         public string FixSyntax(string uploadFileContent, string modFilePath)
         {
-            var result = ReduceNrOfParamsInSpotData(uploadFileContent);
+            var result = _volvoTruckSyntaxFixer.CorrectSyntax();
             result = SwapSpotDataWithGunData(result);
             return result;
         }
@@ -90,7 +86,7 @@ namespace AbbRapidPreUploader
             var callDefAsText = point.CallDefAsText;
 
             string[] splitted = null;
-            if (point.PointDef is null)
+            if (point.HasInlinePointDefinition()) // SpotL [[-1366.65,1108.96,920.06],[0.00444309,-0.038809,-0.00344693,0.999226],[1,0,-2,0],[9E+09,115.501,9E+09,9E+09,9E+09,9E+09]], vmax, XQ11Gun, Sd_wp7614_30, XQ11GunTCP;
             {
                 var inlinePointDef = point.GetInlinePointDefinition();
                 callDefAsText = point.CallDefAsText.Replace(inlinePointDef, "");
@@ -105,46 +101,48 @@ namespace AbbRapidPreUploader
             return result;
         }
 
+        //SpotL wp31274_2,vmax,XQ11Gun,Sd_wp31274_2_20\QuickRelease,XQ11GunTCP\WObj:=wFML2_CabFrame;
+        //SpotL wp31154,vmax,XQ11Gun,Sd_wp31154_20,\QuickRelease,XQ11GunTCP\WObj:=wFML2_CabFrame;
         private static string[] SplittAndSwapValuesInArray(string callDefAsText)
         {
             var splitted = callDefAsText.Split(',');
 
-            if (splitted.Length != 5)
+            if (!(splitted.Length == 5 || splitted.Length == 6))
                 throw new NotImplementedException("point definition is different");
 
             splitted.SwapValues(2, 3);
             return splitted;
         }
 
-        private string ReduceNrOfParamsInSpotData(string uploadFileContent)
-        {
-            var splittedByWhiteLine = uploadFileContent.Split(new string[] { Environment.NewLine }, StringSplitOptions.None);
+        //private string ReduceNrOfParamsInSpotData(string uploadFileContent)
+        //{
+        //    var splittedByWhiteLine = uploadFileContent.Split(new string[] { Environment.NewLine }, StringSplitOptions.None);
 
-            for (var index = 0; index < splittedByWhiteLine.Length; index++)
-            {
-                var line = splittedByWhiteLine[index];
+        //    for (var index = 0; index < splittedByWhiteLine.Length; index++)
+        //    {
+        //        var line = splittedByWhiteLine[index];
 
-                if (HasTextWronSpotDef(line))
-                    splittedByWhiteLine[index] = ReduceNrOfParamsInSpotDataInLine(line);
-            }
+        //        if (HasTextWronSpotDef(line))
+        //            splittedByWhiteLine[index] = ReduceNrOfParamsInSpotDataInLine(line);
+        //    }
 
-            var result = string.Join(Environment.NewLine, splittedByWhiteLine);
-            return result;
-        }
+        //    var result = string.Join(Environment.NewLine, splittedByWhiteLine);
+        //    return result;
+        //}
 
-        private string ReduceNrOfParamsInSpotDataInLine(string line)
-        {
-            var valueBeforeEqualSign = Regex.Match(line, SPOT_DATA_BEGIN_REG_EX).Value;
-            var orgInBracket = Regex.Match(line, VALUE_IN_BRACKET_REGEX).Value;
+        //private string ReduceNrOfParamsInSpotDataInLine(string line)
+        //{
+        //    var valueBeforeEqualSign = Regex.Match(line, SPOT_DATA_BEGIN_REG_EX).Value;
+        //    var orgInBracket = Regex.Match(line, VALUE_IN_BRACKET_REGEX).Value;
 
 
-            var paramsAsText = orgInBracket.Replace("[", "").Replace("];", "");
+        //    var paramsAsText = orgInBracket.Replace("[", "").Replace("];", "");
 
-            var splitted = paramsAsText.Split(',');
+        //    var splitted = paramsAsText.Split(',');
 
-            var result = valueBeforeEqualSign + "[" + string.Join(",", splitted.Take(4)) + "];";
+        //    var result = valueBeforeEqualSign + "[" + string.Join(",", splitted.Take(4)) + "];";
 
-            return result;
-        }
+        //    return result;
+        //}
     }
 }

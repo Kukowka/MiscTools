@@ -8,7 +8,7 @@
     <OutputType>Exe</OutputType>
     <RootNamespace>AbbRapidPreUploader</RootNamespace>
     <AssemblyName>AbbRapidPreUpload</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
@@ -61,7 +61,7 @@
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>if $(ConfigurationName) == Release (
-"e:\02_Codding_output\02_Tecnomatix_Dll\ConfuserEx_bin\Confuser.CLI.exe" -n "e:\02_Codding_output\02_Tecnomatix_Dll\ConfuserEx_bin\VolvoTruckTmsUtilsDll.crproj"
+"c:\kukowka\TMS_Tools\ConfuserEx_bin\Confuser.CLI.exe" -n "c:\kukowka\TMS_Tools\ConfuserEx_bin\VolvoTruckTmsUtilsDll.crproj"
 )</PostBuildEvent>
   </PropertyGroup>
 </Project>

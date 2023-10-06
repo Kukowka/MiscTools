@@ -1,0 +1,14 @@
+C:\kukowka\MiscTools\ExcelProtectionRemover\ExcelProtectionRemover\bin\Debug\netcoreapp3.1\ExcelProtectionRemover.exe
+C:\kukowka\MiscTools\ExcelProtectionRemover\ExcelProtectionRemover\bin\Debug\netcoreapp3.1\ExcelProtectionRemover.deps.json
+C:\kukowka\MiscTools\ExcelProtectionRemover\ExcelProtectionRemover\bin\Debug\netcoreapp3.1\ExcelProtectionRemover.runtimeconfig.json
+C:\kukowka\MiscTools\ExcelProtectionRemover\ExcelProtectionRemover\bin\Debug\netcoreapp3.1\ExcelProtectionRemover.runtimeconfig.dev.json
+C:\kukowka\MiscTools\ExcelProtectionRemover\ExcelProtectionRemover\bin\Debug\netcoreapp3.1\ExcelProtectionRemover.dll
+C:\kukowka\MiscTools\ExcelProtectionRemover\ExcelProtectionRemover\bin\Debug\netcoreapp3.1\ExcelProtectionRemover.pdb
+C:\kukowka\MiscTools\ExcelProtectionRemover\ExcelProtectionRemover\obj\Debug\netcoreapp3.1\ExcelProtectionRemover.csproj.AssemblyReference.cache
+C:\kukowka\MiscTools\ExcelProtectionRemover\ExcelProtectionRemover\obj\Debug\netcoreapp3.1\ExcelProtectionRemover.GeneratedMSBuildEditorConfig.editorconfig
+C:\kukowka\MiscTools\ExcelProtectionRemover\ExcelProtectionRemover\obj\Debug\netcoreapp3.1\ExcelProtectionRemover.AssemblyInfoInputs.cache
+C:\kukowka\MiscTools\ExcelProtectionRemover\ExcelProtectionRemover\obj\Debug\netcoreapp3.1\ExcelProtectionRemover.AssemblyInfo.cs
+C:\kukowka\MiscTools\ExcelProtectionRemover\ExcelProtectionRemover\obj\Debug\netcoreapp3.1\ExcelProtectionRemover.csproj.CoreCompileInputs.cache
+C:\kukowka\MiscTools\ExcelProtectionRemover\ExcelProtectionRemover\obj\Debug\netcoreapp3.1\ExcelProtectionRemover.dll
+C:\kukowka\MiscTools\ExcelProtectionRemover\ExcelProtectionRemover\obj\Debug\netcoreapp3.1\ExcelProtectionRemover.pdb
+C:\kukowka\MiscTools\ExcelProtectionRemover\ExcelProtectionRemover\obj\Debug\netcoreapp3.1\ExcelProtectionRemover.genruntimeconfig.cache

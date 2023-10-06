@@ -33,6 +33,8 @@ namespace AbbRapidPreUploader
             var fileManager = new FileManager();
             var uploadFilePath = new PsTempFileReader(fileManager).GetUploadFilePath(args[0]);
 
+            Console.WriteLine(uploadFilePath);
+
             var uploadFileContent = fileManager.FileReadAllText(uploadFilePath);
 
             var volvoUploadChanger = new VolvoTruckUplaodChanger(fileManager);
