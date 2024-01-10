@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\kukowka\\MiscTools\\ExcelProtectionRemover\\ExcelProtectionRemover\\ExcelProtectionRemover.csproj": {}
+    "C:\\Users\\kukowka\\source\\repos\\MiscTools\\ExcelProtectionRemover\\ExcelProtectionRemover\\ExcelProtectionRemover.csproj": {}
   },
   "projects": {
-    "C:\\kukowka\\MiscTools\\ExcelProtectionRemover\\ExcelProtectionRemover\\ExcelProtectionRemover.csproj": {
+    "C:\\Users\\kukowka\\source\\repos\\MiscTools\\ExcelProtectionRemover\\ExcelProtectionRemover\\ExcelProtectionRemover.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\kukowka\\MiscTools\\ExcelProtectionRemover\\ExcelProtectionRemover\\ExcelProtectionRemover.csproj",
+        "projectUniqueName": "C:\\Users\\kukowka\\source\\repos\\MiscTools\\ExcelProtectionRemover\\ExcelProtectionRemover\\ExcelProtectionRemover.csproj",
         "projectName": "ExcelProtectionRemover",
-        "projectPath": "C:\\kukowka\\MiscTools\\ExcelProtectionRemover\\ExcelProtectionRemover\\ExcelProtectionRemover.csproj",
+        "projectPath": "C:\\Users\\kukowka\\source\\repos\\MiscTools\\ExcelProtectionRemover\\ExcelProtectionRemover\\ExcelProtectionRemover.csproj",
         "packagesPath": "C:\\Users\\kukowka\\.nuget\\packages\\",
-        "outputPath": "C:\\kukowka\\MiscTools\\ExcelProtectionRemover\\ExcelProtectionRemover\\obj\\",
+        "outputPath": "C:\\Users\\kukowka\\source\\repos\\MiscTools\\ExcelProtectionRemover\\ExcelProtectionRemover\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Progress\\ToolboxNuGetPackages"
