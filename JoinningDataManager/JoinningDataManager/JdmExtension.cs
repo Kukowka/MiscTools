@@ -40,7 +40,8 @@ namespace JoinningDataManager
         public static JdmProduct Convert2Product(this VTATableElementPartPartParameter[] productParams)
         {
             var name = productParams.First(m => m.Name.Equals("Part")).Value;
-            return new JdmProduct(name);
+            throw new NotImplementedException();
+            //return new JdmProduct(name);
         }
 
         public static bool EqualWithTolerance(this double val, double other, double tolerance)

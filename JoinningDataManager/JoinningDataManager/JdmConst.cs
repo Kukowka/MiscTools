@@ -1,6 +1,5 @@
 ﻿using JoinningDataManager.Comparers;
 using System.Collections.Generic;
-using JoinningDataManager;
 
 namespace JoinningDataManager
 {
@@ -29,7 +28,10 @@ namespace JoinningDataManager
         public const string FIELD_NAME_OBERFLAECHE4 = "Oberfläche4";
         public const string FIELD_NAME_ELEMENT = "Element";
 
-
+        public const string FIELD_NAME_INFO_WERKSTOFF1 = "Info_Werkstoff1";
+        public const string FIELD_NAME_INFO_WERKSTOFF2 = "Info_Werkstoff2";
+        public const string FIELD_NAME_INFO_WERKSTOFF3 = "Info_Werkstoff3";
+        public const string FIELD_NAME_INFO_WERKSTOFF4 = "Info_Werkstoff4";
 
         public const string FIELD_NAME_PROCESS = "Process";
         public const string FIELD_NAME_X = "X";
@@ -71,7 +73,7 @@ namespace JoinningDataManager
         public const string VARIANT_NAME_PO685_5_RL = "PO685_5_RL";
         public const string VARIANT_NAME_PO685_3_LL = "PO685_3_LL";
         public const string VARIANT_NAME_PO685_3_RL = "PO685_3_RL";
-        public const string VARIANT_NAME_PO684_4_LL = " PO684_4_LL";
+        public const string VARIANT_NAME_PO684_4_LL = "PO684_4_LL";
         public const string VARIANT_NAME_PO684_4_RL = "PO684_4_RL";
         public const string VARIANT_NAME_PO684_4_LL_CS = "PO684_4_LL_CS";
         public const string VARIANT_NAME_PO684_4_RL_CS = "PO684_4_RL_CS";
@@ -100,12 +102,12 @@ namespace JoinningDataManager
         public const string VARIANT_NAME_PO684_LL_PA_ohne_HSA_S_GTS = "PO684_LL_PA_ohne_HSA_S_GTS";
         public const string VARIANT_NAME_PO455_LL = "PO455_LL";
         public const string VARIANT_NAME_PO455_RL = "PO455_RL";
-        public const string VARIANT_NAME_PO684_3_LL_PA_S_GTS = "PO684_3_LL_PA_S_GTS";
-        public const string VARIANT_NAME_PO684_3_RL_PA_S_GTS = "PO684_3_RL_PA_S_GTS";
-        public const string VARIANT_NAME_PO685_3_LL_PA_S_GTS = "PO685_3_LL_PA_S_GTS";
-        public const string VARIANT_NAME_PO685_3_RL_PA_S_GTS = "PO685_3_RL_PA_S_GTS";
-        public const string VARIANT_NAME_PO684_3_LL_PA_ohne_HSA = "PO684_3_LL_PA_ohne_HSA";
-        public const string VARIANT_NAME_PO684_3_RL_PA_ohne_HSA = "PO684_3_RL_PA_ohne_HSA";
+        public const string VARIANT_NAME_PO684_3_LL_PA_S_GTS = "PO684/3_LL_PA_S_GTS";
+        public const string VARIANT_NAME_PO684_3_RL_PA_S_GTS = "PO684/3_RL_PA_S_GTS";
+        public const string VARIANT_NAME_PO685_3_LL_PA_S_GTS = "PO685/3_LL_PA_S_GTS";
+        public const string VARIANT_NAME_PO685_3_RL_PA_S_GTS = "PO685/3_RL_PA_S_GTS";
+        public const string VARIANT_NAME_PO684_3_LL_PA_ohne_HSA = "PO684/3_LL_PA_ohne_HSA";
+        public const string VARIANT_NAME_PO684_3_RL_PA_ohne_HSA = "PO684/3_RL_PA_ohne_HSA";
 
         public const string VARIANT_NAME_PA_GT3_RS_LL = "PA_GT3_RS_LL";
         public const string VARIANT_NAME_PA_GT3_RS_RL = "PA_GT3_RS_RL";
@@ -143,22 +145,22 @@ namespace JoinningDataManager
             new JdmColumnConfig(FIELD_NAME_BAUTEIL1, "X", null),
             new JdmColumnConfig(FIELD_NAME_DICKE1, "Y", null),
             new JdmColumnConfig(FIELD_NAME_MATERIAL1, "Z", null),
-            new JdmColumnConfig(FIELD_NAME_OBERFLÄCHE1, "AA", null),
-            new JdmColumnConfig(FIELD_NAME_STRECKGRENZE1, "AB", null),
+            //new JdmColumnConfig(FIELD_NAME_OBERFLÄCHE1, "AA", null),
+            //new JdmColumnConfig(FIELD_NAME_STRECKGRENZE1, "AB", null),
             new JdmColumnConfig(FIELD_NAME_BAUTEIL2, "AC", null),
             new JdmColumnConfig(FIELD_NAME_DICKE2, "AD", null),
             new JdmColumnConfig(FIELD_NAME_MATERIAL2, "AE", null),
-            new JdmColumnConfig(FIELD_NAME_OBERFLAECHE2, "AF", null),
-            new JdmColumnConfig(FIELD_NAME_STRECKGRENZE2, "AG", null),
+            //new JdmColumnConfig(FIELD_NAME_OBERFLAECHE2, "AF", null),
+            //new JdmColumnConfig(FIELD_NAME_STRECKGRENZE2, "AG", null),
             new JdmColumnConfig(FIELD_NAME_BAUTEIL3, "AH", null),
             new JdmColumnConfig(FIELD_NAME_DICKE3, "AI", null),
             new JdmColumnConfig(FIELD_NAME_MATERIAL3, "AJ", null),
-            new JdmColumnConfig(FIELD_NAME_OBERFLAECHE3, "AK", null),
-            new JdmColumnConfig(FIELD_NAME_STRECKGRENZE3, "AL", null),
+            //new JdmColumnConfig(FIELD_NAME_OBERFLAECHE3, "AK", null),
+            //new JdmColumnConfig(FIELD_NAME_STRECKGRENZE3, "AL", null),
             new JdmColumnConfig(FIELD_NAME_BAUTEIL4, "AM", null),
             new JdmColumnConfig(FIELD_NAME_DICKE4, "AN", null),
             new JdmColumnConfig(FIELD_NAME_MATERIAL4, "AO", null),
-            new JdmColumnConfig(FIELD_NAME_OBERFLAECHE4, "AP", null),
+            //new JdmColumnConfig(FIELD_NAME_OBERFLAECHE4, "AP", null),
 
             new JdmColumnConfig(VARIANT_NAME_PO684_LL, "CK", null),
             new JdmColumnConfig(VARIANT_NAME_PO684_RL, "CL", null),
@@ -224,24 +226,31 @@ namespace JoinningDataManager
             FIELD_NAME_END_Y,
             FIELD_NAME_END_Z,
 
+            FIELD_NAME_DICKE1,
+            FIELD_NAME_INFO_WERKSTOFF1,
+            FIELD_NAME_DICKE2,
+            FIELD_NAME_INFO_WERKSTOFF2,
+            FIELD_NAME_DICKE3,
+            FIELD_NAME_INFO_WERKSTOFF3,
+            FIELD_NAME_DICKE4,
+            FIELD_NAME_INFO_WERKSTOFF4,
+
             FIELD_NAME_LINSENDURCHMESSER,
             FIELD_NAME_LINSENDURCHMESSER2,
             FIELD_NAME_NIETDURCHMESSER,
             FIELD_NAME_FDSDURCHMESSER,
             FIELD_NAME_FDSLAENGE,
-            //"Kleber Austritt Ja/Nein",
+
             FIELD_NAME_STUMPFNAHTDICKE,
             FIELD_NAME_KEHLNAHTDICKE,
             FIELD_NAME_NAHTLAENGE,
             FIELD_NAME_KLEBSTOFF1,
             FIELD_NAME_KLEBSTOFF2,
-            //"Klebstoff3",
-            //"Funktionsklasse Kleben",
+
             FIELD_NAME_RESELEMENT,
             FIELD_NAME_CLINCHDURCHMESSER,
             FIELD_NAME_BOLZENTYP,
         };
-
 
         public static string[] VARIANT_NAMES = new[]
         {
@@ -289,6 +298,8 @@ namespace JoinningDataManager
             VARIANT_NAME_PO685_3_RL_PA_S_GTS,
             VARIANT_NAME_PO684_3_LL_PA_ohne_HSA,
             VARIANT_NAME_PO684_3_RL_PA_ohne_HSA,
+            VARIANT_NAME_PA_GT3_RS_LL,
+            VARIANT_NAME_PA_GT3_RS_RL,
         };
 
         public static Dictionary<string, Program.ChangeTypes> FieldNameVsChangeTypesMapTable = new()

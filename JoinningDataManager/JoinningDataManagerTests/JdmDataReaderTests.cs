@@ -28,7 +28,7 @@ namespace JoinningDataManager.Tests
         public void ExtractVdlPointsTest_EachPointShouldHaveNameAndXyz()
         {
             //arrange
-            var sut = new JdmDataReaderExcel();
+            var sut = new JdmDataReaderVdlExcel();
 
             //act
             var vdlPoint = sut.ExtractVdlPoints(Program.VDL_EXCEL_PATH, Program.VDL_EXCEL_SHEET_NAME, JdmConst.VDL_COLUMN_CONFIG, Program.VDL_START_ROW_INDEX);

@@ -6,3 +6,11 @@ C:\Users\kukowka\source\repos\JoinningDataManager\JoinningDataManager\obj\Debug\
 C:\Users\kukowka\source\repos\JoinningDataManager\JoinningDataManager\obj\Debug\JoinningDataManager.exe
 C:\Users\kukowka\source\repos\JoinningDataManager\JoinningDataManager\obj\Debug\JoinningDataManager.pdb
 C:\Users\kukowka\source\repos\JoinningDataManager\JoinningDataManager\obj\Debug\JoinningDataManager.csproj.CopyComplete
+C:\Users\kukowka\source\repos\MiscTools\JoinningDataManager\JoinningDataManager\bin\Debug\JoinningDataManager.exe.config
+C:\Users\kukowka\source\repos\MiscTools\JoinningDataManager\JoinningDataManager\bin\Debug\JoinningDataManager.exe
+C:\Users\kukowka\source\repos\MiscTools\JoinningDataManager\JoinningDataManager\bin\Debug\JoinningDataManager.pdb
+C:\Users\kukowka\source\repos\MiscTools\JoinningDataManager\JoinningDataManager\obj\Debug\JoinningDataManager.csproj.AssemblyReference.cache
+C:\Users\kukowka\source\repos\MiscTools\JoinningDataManager\JoinningDataManager\obj\Debug\JoinningDataManager.csproj.CoreCompileInputs.cache
+C:\Users\kukowka\source\repos\MiscTools\JoinningDataManager\JoinningDataManager\obj\Debug\JoinningDataManager.csproj.CopyComplete
+C:\Users\kukowka\source\repos\MiscTools\JoinningDataManager\JoinningDataManager\obj\Debug\JoinningDataManager.exe
+C:\Users\kukowka\source\repos\MiscTools\JoinningDataManager\JoinningDataManager\obj\Debug\JoinningDataManager.pdb
