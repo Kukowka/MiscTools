@@ -4,7 +4,7 @@ namespace JoinningDataManager.Comparers
 {
     public class JdmComparerString : IJdmComparer
     {
-        private readonly bool _isCaseSensitive = true;
+        private readonly bool _isCaseSensitive = false;
         public JdmComparerString()
         {
 
@@ -16,9 +16,9 @@ namespace JoinningDataManager.Comparers
         }
         public bool AreEqual(string value1, string value2)
         {
-            if (value1 is null)
+            if (string.IsNullOrEmpty(value1))
             {
-                if (value2 is null)
+                if (string.IsNullOrEmpty(value2))
                     return true;
                 return false;
             }

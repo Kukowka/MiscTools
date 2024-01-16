@@ -2,7 +2,7 @@
 {
     public class JdmProduct
     {
-        public JdmProduct(string name, int id)
+        public JdmProduct(string name, int id = -1)
         {
             Name = name;
             Id = id;

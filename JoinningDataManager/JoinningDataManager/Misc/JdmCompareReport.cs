@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace JoinningDataManager
 {
@@ -17,10 +16,17 @@ namespace JoinningDataManager
             NewValue = newValue;
         }
 
-        public JdmCompareReport(string PointName)
+        public JdmCompareReport(string pointName, JdmVdlPoint newPoint)
         {
             ChangeType = Program.ChangeTypes.New;
-            this.Name = PointName;
+            this.Name = pointName;
+            NewPoint = newPoint;
+        }
+
+        public JdmCompareReport(string pointName, Program.ChangeTypes changeType)
+        {
+            ChangeType = changeType;
+            this.Name = pointName;
         }
 
         public Program.ChangeTypes ChangeType { get; }
@@ -28,6 +34,8 @@ namespace JoinningDataManager
         public string ParamName { get; }
         public string OldValue { get; }
         public string NewValue { get; }
+
+        public JdmVdlPoint NewPoint { get; }
 
         public override string ToString() => $"{Name.ToCsvSafe()},{ParamName.ToCsvSafe()},{OldValue.ToCsvSafe()},{NewValue.ToCsvSafe()}";
 

@@ -22,15 +22,14 @@ public class JdmDataReaderVariantExcel
             var variantName = usedRange[1, columnIndex].StringValue;
             var assemblies = new List<string>();
 
-            if (variantName.Equals("PO684_4_CUP"))
+            if (variantName.Equals("PO455_LL"))
             {
-
             }
 
             for (int rowIndex = 4; rowIndex < usedRange.LastRowIndex; rowIndex++)
             {
                 if (usedRange[rowIndex, columnIndex].ValueType == CellValueType.Null)
-                    break;
+                    continue;
 
                 var assemblyName = usedRange[rowIndex, columnIndex].StringValue;
 
@@ -45,7 +44,7 @@ public class JdmDataReaderVariantExcel
                 assemblies.Add(assemblyName);
             }
 
-            results.Add(new JdmVariantAssembly(variantName, assemblies.ToArray()));
+            results.Add(new JdmVariantAssembly(variantName, assemblies));
         }
 
 
@@ -56,7 +55,7 @@ public class JdmDataReaderVariantExcel
     {
         foreach (var variant in variants)
         {
-            if (JdmConst.VARIANT_NAMES.Contains(variant.VariantName))
+            if (!JdmConst.VARIANT_NAMES.Contains(variant.VariantName))
                 return false;
         }
 

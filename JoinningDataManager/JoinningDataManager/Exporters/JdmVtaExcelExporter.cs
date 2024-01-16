@@ -1,16 +1,26 @@
 ﻿using GemBox.Spreadsheet;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace JoinningDataManager;
 
 public class JdmVtaExcelExporter
 {
+    public const string VTA_EXPORT_SHEET_NAME = "Vta export";
+
     public void ExportVta2Excel(string path, List<JdmRawVtaPoint> points, List<JdmColumnConfig> columnConfig)
     {
         var workbook = new ExcelFile();
 
-        var worksheet = workbook.Worksheets.Add("Vta export");
+        var worksheet = workbook.Worksheets.Add(VTA_EXPORT_SHEET_NAME);
 
+        ExportPoints2ExcelWorkSheet(points.Cast<IJdmComparable>().ToList(), columnConfig, worksheet);
+
+        workbook.Save(path);
+    }
+
+    public static void ExportPoints2ExcelWorkSheet(List<IJdmComparable> points, List<JdmColumnConfig> columnConfig, ExcelWorksheet worksheet)
+    {
         foreach (var config in columnConfig)
         {
             var columnIndex = ExcelColumnCollection.ColumnNameToIndex(config.VdlColumnName);
@@ -26,7 +36,7 @@ public class JdmVtaExcelExporter
                 worksheet.Cells[index + 1, columnIndex].SetValue(point.GetFields2Compare(config.FieldName));
             }
         }
-
-        workbook.Save(path);
     }
 }
+
+

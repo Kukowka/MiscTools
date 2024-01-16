@@ -12,7 +12,13 @@ namespace JoinningDataManager
 
         public string Name { get; }
         public Dictionary<string, string> FieldNameVsValue { get; }
-        public string GetFields2Compare(string fieldName) => FieldNameVsValue[fieldName];
+        public string GetFields2Compare(string fieldName)
+        {
+            if (fieldName.Equals(JdmConst.FIELD_NAME_NAME))
+                return Name;
+
+            return FieldNameVsValue[fieldName];
+        }
 
         public bool HasSameXyz(JdmVdlPoint other)
         {

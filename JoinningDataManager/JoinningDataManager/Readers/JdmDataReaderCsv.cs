@@ -34,12 +34,9 @@ public class JdmDataReaderCsv
             var points = ReadVtaCsv(csvPath, fieldNames);
             foreach (var point in points)
             {
-                if (point.Name.Equals("992.800.702___-003-F8-001-L"))
-                {
+                //var variants = GetVariantFromCsvName(csvPath, allVariants);
+                var variants = new string[] { };
 
-                }
-
-                var variants = GetVariantFromCsvName(csvPath, allVariants);
                 var theSamePoint = allPoints.FirstOrDefault(m => m.Name.Equals(point.Name));
 
                 if (theSamePoint is not null)
@@ -77,7 +74,7 @@ public class JdmDataReaderCsv
         return variants;
     }
 
-    private static List<JdmRawVtaPoint> ReadVtaCsv(string filePath, string[] fieldNames)
+    public static List<JdmRawVtaPoint> ReadVtaCsv(string filePath, string[] fieldNames)
     {
         var allLines = File.ReadAllLines(filePath).ToList();
 
@@ -86,14 +83,21 @@ public class JdmDataReaderCsv
         if (products.Count == 0)
             throw new InvalidDataException();
 
-        var points = ReadPointsFromCsv(allLines, fieldNames, products);
+        List<JdmRawVtaPoint> points;
+        try
+        {
+            points = ReadPointsFromCsv(allLines, fieldNames, products);
+        }
+        catch (Exception e)
+        {
+            throw e;
+        }
 
         if (points.Count == 0)
             throw new InvalidDataException();
 
         return points;
     }
-
     private static List<JdmProduct> ReadProductsFromCsv(List<string> allLines)
     {
         var firstLine = allLines.First(m => m.StartsWith("\"Parts\""));
@@ -118,7 +122,6 @@ public class JdmDataReaderCsv
 
         return products;
     }
-
     private static JdmProduct GetProductFromOneCsvRow(string line)
     {
         var splitted = line.Split(';').ToList();
@@ -131,7 +134,6 @@ public class JdmDataReaderCsv
 
         return new JdmProduct(name, thickness, id);
     }
-
     private static List<JdmRawVtaPoint> ReadPointsFromCsv(List<string> allLines, string[] fieldNames, List<JdmProduct> products)
     {
         var firstLine = allLines.First(m => m.StartsWith("\"Elements\""));
@@ -187,8 +189,8 @@ public class JdmDataReaderCsv
         var result = new List<int>();
         for (int i = LAST_FIELD_COLUMN_INDEX + 2; i < rowSplitted.Count; i++)
         {
-            var val = rowSplitted[i].Trim();
-            if (val.Equals("\"x", StringComparison.InvariantCultureIgnoreCase))
+            var val = rowSplitted[i].Trim().Replace("\"", "");
+            if (val.Equals("x", StringComparison.InvariantCultureIgnoreCase))
             {
                 var id = i - (LAST_FIELD_COLUMN_INDEX + 1);
                 result.Add(id);

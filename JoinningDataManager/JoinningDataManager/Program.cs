@@ -12,70 +12,115 @@ namespace JoinningDataManager
     {
         public static string GEMBOX_LIC = "SN-2023May23-OQ1MibKojfVvZoPCvWlB0q7iakOKFM4c0IZiRe2u605diDgqM17xjS0uBeCZXtREEREWQ71d6K3zkJXK1QXD/K5Z4AA==A";
 
-        public static string VTA_XMLS_PATH = @"\\fs125\eM_Planner_Data\SystemRoot\TMS_PS_add-ins\01_Organisation\26_Future_Joining_Concept\ExampleData\01_Porsche\01_InputData\47_PO455_Boxster_Zwischendatenstand_Crash_Probleme_Aufbau";
-        public static string VTA_CSVS_PATH = @"e:\PS_Coding\JoiningDataManager\InputData\62_PO992_W23Q73_Bauteildaten_FDS_Verschiebung_Schweller";
+        public static string VTA_XMLS_PATH = @"e:\PS_Coding\JoiningDataManager\InputData\63_PO455_Boxster_HDBT_VFF_Stern_KW50";
+
+        //public static string VTA_CSVS_PATH = @"e:\PS_Coding\JoiningDataManager\InputData\62_PO992_W23Q73_Bauteildaten_FDS_Verschiebung_Schweller";
+        public static string VTA_CSVS_PATH = @"e:\PS_Coding\JoiningDataManager\InputData\63_PO455_Boxster_HDBT_VFF_Stern_KW50";
         //public static string VTA_CSVS_PATH = @"e:\PS_Coding\JoiningDataManager\InputData\63_PO455_Boxster_HDBT_VFF_Stern_KW50";
 
-        public static string VTA_EXPORT_PATH = @"e:\PS_Coding\JoiningDataManager\VTA_Export_20240110.xlsx";
+        public static string VTA_EXPORT_PATH = @"e:\PS_Coding\JoiningDataManager\VTA_Export_20240116.xlsx";
+        //public static string VTA_EXPORT_PATH = @"e:\PS_Coding\JoiningDataManager\VTA_ExportTest_20240115.xlsx";
 
+        //public static string VDL_EXCEL_PATH = @"e:\PS_Coding\JoiningDataManager\Verbindungsdatenliste_P992_983_Rev01_.xlsx";
+        //public static string VDL_EXCEL_PATH = @"e:\PS_Coding\JoiningDataManager\Verbindungsdatenliste_P992_983_Rev01_Boxer_LL.xlsx";
 
-        public static string VDL_EXCEL_PATH = @"e:\PS_Coding\JoiningDataManager\Verbindungsdatenliste_P992_983_Rev01_.xlsx";
+        //public static string VDL_EXCEL_PATH = @"e:\PS_Coding\JoiningDataManager\Verbindungsdatenliste_P983_IHS_Maßnahmen.xlsx";
+        public static string VDL_EXCEL_PATH = @"e:\PS_Coding\JoiningDataManager\Verbindungsdatenliste_P983_IHS_Maßnahmen_Boxter_LL2.xlsx";
+
         public static string VARIANT_EXCEL_PATH = @"\\at.tmsp.local\Projekte\M1A\21123\13_Eng_Mechanik\15_Bauteile\02_Variantenübersicht\20231107_Zusammenfassung_Fügestufen_TMS_kukowka.xlsx";
         public static string VDL_EXCEL_SHEET_NAME = "Punktliste";
         public static int VDL_START_ROW_INDEX = 2; //zero based index
 
-        public static string RESULT_DIR = @"e:\PS_Coding\JoiningDataManager";
+        public static string RESULT_PATH = @"e:\PS_Coding\JoiningDataManager\PartUpdateChanges_20240116_Boxter.xlsx";
         public static string PART_UPDATE_TAG = "34\\35";
-        public static string GetChangesReportPath() => RESULT_DIR + "Changes.csv";
-        public static string GetNewPointsReportPath() => RESULT_DIR + "NewPoints.xlsx";
+        //public static string GetChangesReportPath() => RESULT_DIR + "Changes.csv";
+        //public static string GetNewPointsReportPath() => RESULT_DIR + "NewPoints.xlsx";
 
         static void Main(string[] args)
         {
             SpreadsheetInfo.SetLicense(GEMBOX_LIC);
 
-            if (!Directory.Exists(VTA_CSVS_PATH))
-                throw new ArgumentOutOfRangeException(nameof(VTA_CSVS_PATH), "Directory does not exists");
+            var variants = ReadVariants();
+            //ReadVtaPointsFromXmls(variants);
+            var vdlPoints = ReadVdlPoints(VDL_EXCEL_PATH, VDL_EXCEL_SHEET_NAME, VDL_COLUMN_CONFIG, VDL_START_ROW_INDEX);
+            var newVtaPoints = ReadVdlPoints(VTA_EXPORT_PATH, JdmVtaExcelExporter.VTA_EXPORT_SHEET_NAME, VDL_COLUMN_CONFIG, 1);
 
-            if (!File.Exists(VDL_EXCEL_PATH))
-                throw new ArgumentOutOfRangeException(nameof(VDL_EXCEL_PATH), "File does not exists");
+            //var newVtaPoints = ReadVdlPoints(VDL_EXCEL_PATH, JdmVtaExcelExporter.VTA_EXPORT_SHEET_NAME, VDL_COLUMN_CONFIG, 1);
 
+            if (newVtaPoints.Any(m => m.Name.Equals("992.803.001___-031-D6-001-R")))
+            {
+            }
+
+            var compareRunner = new JdmCompareRunner(newVtaPoints, vdlPoints, VDL_COLUMN_CONFIG);
+            var reports = compareRunner.ComparePoints();
+
+            new JdmChangesExporter().ExportChanges2Excel(reports, RESULT_PATH, VDL_COLUMN_CONFIG);
+        }
+
+        public static List<JdmVariantAssembly> ReadVariants()
+        {
             var readerVariantExcel = new JdmDataReaderVariantExcel();
             var variants = readerVariantExcel.ExtractVariants(VARIANT_EXCEL_PATH);
 
             if (!readerVariantExcel.AreReadVariantsOk(variants))
                 throw new InvalidDataException();
 
-            var vtaReader = new JdmDataReaderCsv();
-            var vtaPoints = vtaReader.ExtractVtaPointsFromCsvs(VTA_CSVS_PATH, FIELD_NAMES, variants);
+            return variants;
+        }
+        private static List<JdmVdlPoint> FilterPointsForVariant(List<JdmVdlPoint> newVtaPoints, string variantName, List<JdmVariantAssembly> variants)
+        {
+            var boxterVariant = variants.First(m => m.VariantName.Equals(variantName));
+            boxterVariant.RemoveUnusedAssemblies();
+            var boxterLlPoints = newVtaPoints.Where(m => boxterVariant.IsPointOfVariant(m.Name)).ToList();
+            return boxterLlPoints;
+        }
+
+        private static List<JdmVdlPoint> ReadVdlPoints(string vdlExcelPath, string sheetName, List<JdmColumnConfig> vdlColumnConfig, int vdlStartRowIndex)
+        {
+            if (!File.Exists(vdlExcelPath))
+                throw new ArgumentOutOfRangeException(nameof(vdlExcelPath), "File does not exists");
+
             var vdlReader = new JdmDataReaderVdlExcel();
-            var vdlPoints = vdlReader.ExtractVdlPoints(VDL_EXCEL_PATH, VDL_EXCEL_SHEET_NAME, VDL_COLUMN_CONFIG, VDL_START_ROW_INDEX);
-
-
-            if (!vtaReader.HaveVtaPointsUniqueNames(vtaPoints))
-                throw new InvalidCastException();
+            var vdlPoints = vdlReader.ExtractVdlPoints(vdlExcelPath, sheetName, vdlColumnConfig, vdlStartRowIndex);
 
             //if (!vdlReader.HaveVdlPointsUniqueNames(vdlPoints))
             //    throw new InvalidCastException();
 
-            new JdmVtaExcelExporter().ExportVta2Excel(VTA_EXPORT_PATH, vtaPoints, JdmConst.VDL_COLUMN_CONFIG);
-
-            //var compareRunner = new JdmCompareRunner(vtaPoints, vdlPoints, VDL_COLUMN_CONFIG);
-            //var reports = compareRunner.ComparePoints();
-            //compareRunner.GetRedundantVariants(vdlPoints, VARIANT_NAMES);
-            //ExportOutputData(reports, vtaPoints);
+            return vdlPoints;
         }
 
-
-        private static void ExportOutputData(List<JdmCompareReport> reports, List<JdmRawVtaPoint> vtaPoints)
+        private static void ReadVtaPointsFromCsvs()
         {
-            var reportsFormatter = new JdmReportFormatter();
-            var withTypeOverallReport = reportsFormatter.GetReportsGroupedByType(reports);
-            File.WriteAllText(GetChangesReportPath(), withTypeOverallReport);
+            if (!Directory.Exists(VTA_CSVS_PATH))
+                throw new ArgumentOutOfRangeException(nameof(VTA_CSVS_PATH), "Directory does not exists");
 
+            //var readerVariantExcel = new JdmDataReaderVariantExcel();
+            //var variants = readerVariantExcel.ExtractVariants(VARIANT_EXCEL_PATH);
 
-            var newPointReports = reports.Where(m => m.ChangeType == ChangeTypes.New);
-            var newVtaPoints = vtaPoints.Where(m => newPointReports.Any(n => n.Name.Equals(m.Name))).ToList();
-            new JdmNewPointsExporter().ExportNewPoints2Excel(GetNewPointsReportPath(), newVtaPoints, JdmConst.VDL_COLUMN_CONFIG);
+            //if (!readerVariantExcel.AreReadVariantsOk(variants))
+            //    throw new InvalidDataException();
+
+            var vtaReader = new JdmDataReaderCsv();
+            var vtaPoints = vtaReader.ExtractVtaPointsFromCsvs(VTA_CSVS_PATH, FIELD_NAMES, new List<JdmVariantAssembly>());
+
+            //JdmDataReaderCsv.ReadVtaCsv(@"e:\PS_Coding\JoiningDataManager\InputData\63_PO455_Boxster_HDBT_VFF_Stern_KW50\A_ANBAUTEIL_ROHBAU_NACH_LACK\983.805.364.___VER_001.0_20220909.csv", FIELD_NAMES);
+
+            if (!vtaReader.HaveVtaPointsUniqueNames(vtaPoints))
+                throw new InvalidCastException();
+
+            new JdmVtaExcelExporter().ExportVta2Excel(VTA_EXPORT_PATH, vtaPoints, JdmConst.VDL_COLUMN_CONFIG);
+        }
+
+        private static void ReadVtaPointsFromXmls(List<JdmVariantAssembly> variants)
+        {
+            if (!Directory.Exists(VTA_XMLS_PATH))
+                throw new ArgumentOutOfRangeException(nameof(VTA_XMLS_PATH), "Directory does not exists");
+
+            var xmlReader = new JdmDataReaderXmls();
+            var variant = variants.First(m => m.VariantName.Equals(VARIANT_NAME_PO455_LL));
+            variant.RemoveUnusedAssemblies();
+            var vtaPoints = xmlReader.ExtractVtaPointsFromXmls(VTA_XMLS_PATH, FIELD_NAMES, variant);
+            new JdmVtaExcelExporter().ExportVta2Excel(VTA_EXPORT_PATH, vtaPoints, JdmConst.VDL_COLUMN_CONFIG);
         }
 
         public enum ChangeTypes
@@ -84,6 +129,8 @@ namespace JoinningDataManager
             Deleted,
             ParamChanged,
             XyzChanged,
+            AssignedPartChanged,
+            PartPropertyChanged,
         }
     }
 }
