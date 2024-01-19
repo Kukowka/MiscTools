@@ -38,7 +38,7 @@ namespace JoinningDataManager
             return false;
         }
 
-        public string GetFields2Compare(string fieldName)
+        public string GetField2Compare(string fieldName)
         {
             if (JdmConst.VARIANT_NAMES.Contains(fieldName))
             {
@@ -97,7 +97,7 @@ namespace JoinningDataManager
                 case JdmConst.FIELD_NAME_Z:
                     {
                         if (IsContinuesPoint())
-                            return FieldNameVsValue[JdmConst.FIELD_NAME_START_Y];
+                            return FieldNameVsValue[JdmConst.FIELD_NAME_START_Z];
                         break;
                     }
             }

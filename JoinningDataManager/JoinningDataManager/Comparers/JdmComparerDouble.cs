@@ -20,11 +20,11 @@ namespace JoinningDataManager.Comparers
                 return false;
             }
 
-            if (!double.TryParse(value1, out var value1Double))
+            if (!value1.ImprovedDoubleTryParse(out var value1Double))
                 throw new ArgumentOutOfRangeException(nameof(value1));
 
 
-            if (!double.TryParse(value1, out var value2Double))
+            if (!value2.ImprovedDoubleTryParse(out var value2Double))
                 throw new ArgumentOutOfRangeException(nameof(value2));
 
 

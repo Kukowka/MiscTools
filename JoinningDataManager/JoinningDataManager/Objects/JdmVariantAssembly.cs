@@ -19,7 +19,6 @@ public class JdmVariantAssembly
 
     public List<string> Assemblies { get; }
 
-
     public bool ContainsAssembly(string otherAssemblyName)
     {
         var otherAssemblyNr = GetAssemblyNrAndLetter(otherAssemblyName, out _);

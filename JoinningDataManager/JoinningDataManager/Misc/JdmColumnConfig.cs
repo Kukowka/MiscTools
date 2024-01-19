@@ -1,4 +1,5 @@
 ﻿using JoinningDataManager.Comparers;
+using System;
 
 namespace JoinningDataManager
 {
@@ -11,8 +12,13 @@ namespace JoinningDataManager
             Comparer = comparer;
         }
 
-        public string FieldName { get; } 
+        public string FieldName { get; }
+
+        [Obsolete("only FieldName should be used for defining column ")]
         public string VdlColumnName { get; }
-        public IJdmComparer  Comparer { get; }
+        public IJdmComparer Comparer { get; }
+        public bool IsProductable { get; } //not used in current implementation
+
+
     }
 }

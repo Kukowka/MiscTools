@@ -2,6 +2,6 @@
 {
     public interface IJdmComparable
     {
-        public string GetFields2Compare(string fieldName);
+        public string GetField2Compare(string fieldName);
     }
 }

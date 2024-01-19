@@ -112,19 +112,29 @@ namespace JoinningDataManager
         public const string VARIANT_NAME_PA_GT3_RS_LL = "PA_GT3_RS_LL";
         public const string VARIANT_NAME_PA_GT3_RS_RL = "PA_GT3_RS_RL";
 
+        public static JdmPartColumnConfig PART_COMPARER = new(
+            new[] { FIELD_NAME_BAUTEIL1, FIELD_NAME_BAUTEIL2, FIELD_NAME_BAUTEIL3, FIELD_NAME_BAUTEIL4 },
+            new[]
+            {
+                new JdmPartColumnConfigUnit(new JdmComparerDouble(0), new []{FIELD_NAME_DICKE1, FIELD_NAME_DICKE2, FIELD_NAME_DICKE3, FIELD_NAME_DICKE4}),
+                new JdmPartColumnConfigUnit(new JdmComparerString(), new []{FIELD_NAME_MATERIAL1, FIELD_NAME_MATERIAL2, FIELD_NAME_MATERIAL3, FIELD_NAME_MATERIAL4}),
+            }
+        );
+
+
         public static List<JdmColumnConfig> VDL_COLUMN_CONFIG = new()
         {
             new JdmColumnConfig(FIELD_NAME_NAME, "I", null), //first value must be MFG name
             new JdmColumnConfig(FIELD_NAME_PROCESS, "K", new JdmComparerString()),
             new JdmColumnConfig(FIELD_NAME_BEMERKUNG, "AX", null),
 
-            new JdmColumnConfig(FIELD_NAME_X, "R", new JdmComparerDouble(3)),
-            new JdmColumnConfig(FIELD_NAME_Y, "S", new JdmComparerDouble(3)),
-            new JdmColumnConfig(FIELD_NAME_Z, "T", new JdmComparerDouble(3)),
+            new JdmColumnConfig(FIELD_NAME_X, "R", new JdmComparerDouble(1)),
+            new JdmColumnConfig(FIELD_NAME_Y, "S", new JdmComparerDouble(1)),
+            new JdmColumnConfig(FIELD_NAME_Z, "T", new JdmComparerDouble(1)),
 
-            new JdmColumnConfig(FIELD_NAME_END_X, "U", new JdmComparerDouble(3)),
-            new JdmColumnConfig(FIELD_NAME_END_Y, "V", new JdmComparerDouble(3)),
-            new JdmColumnConfig(FIELD_NAME_END_Z, "W", new JdmComparerDouble(3)),
+            new JdmColumnConfig(FIELD_NAME_END_X, "U", new JdmComparerDouble(1)),
+            new JdmColumnConfig(FIELD_NAME_END_Y, "V", new JdmComparerDouble(1)),
+            new JdmColumnConfig(FIELD_NAME_END_Z, "W", new JdmComparerDouble(1)),
 
             new JdmColumnConfig(FIELD_NAME_LINSENDURCHMESSER, "BP", new JdmComparerString()),
             new JdmColumnConfig(FIELD_NAME_LINSENDURCHMESSER2, "BQ", new JdmComparerString()),
@@ -142,24 +152,31 @@ namespace JoinningDataManager
             new JdmColumnConfig(FIELD_NAME_CLINCHDURCHMESSER, "CE", new JdmComparerString()),
             new JdmColumnConfig(FIELD_NAME_BOLZENTYP, "CF", new JdmComparerString()),
 
-            new JdmColumnConfig(FIELD_NAME_BAUTEIL1, "X", new JdmComparerString()),
-            new JdmColumnConfig(FIELD_NAME_DICKE1, "Y", new JdmComparerDouble(0)),
-            new JdmColumnConfig(FIELD_NAME_MATERIAL1, "Z", new JdmComparerString()),
+            new JdmColumnConfig(FIELD_NAME_BAUTEIL1, "X", null),
+            new JdmColumnConfig(FIELD_NAME_DICKE1, "Y", null),
+            new JdmColumnConfig(FIELD_NAME_MATERIAL1, "Z", null),
+
             //new JdmColumnConfig(FIELD_NAME_OBERFLÄCHE1, "AA", null),
             //new JdmColumnConfig(FIELD_NAME_STRECKGRENZE1, "AB", null),
-            new JdmColumnConfig(FIELD_NAME_BAUTEIL2, "AC", new JdmComparerString()),
-            new JdmColumnConfig(FIELD_NAME_DICKE2, "AD", new JdmComparerDouble(0)),
-            new JdmColumnConfig(FIELD_NAME_MATERIAL2, "AE", new JdmComparerString()),
+
+            new JdmColumnConfig(FIELD_NAME_BAUTEIL2, "AC", null),
+            new JdmColumnConfig(FIELD_NAME_DICKE2, "AD", null),
+            new JdmColumnConfig(FIELD_NAME_MATERIAL2, "AE", null),
+
             //new JdmColumnConfig(FIELD_NAME_OBERFLAECHE2, "AF", null),
             //new JdmColumnConfig(FIELD_NAME_STRECKGRENZE2, "AG", null),
-            new JdmColumnConfig(FIELD_NAME_BAUTEIL3, "AH", new JdmComparerString()),
-            new JdmColumnConfig(FIELD_NAME_DICKE3, "AI", new JdmComparerDouble(0)),
-            new JdmColumnConfig(FIELD_NAME_MATERIAL3, "AJ", new JdmComparerString()),
+
+            new JdmColumnConfig(FIELD_NAME_BAUTEIL3, "AH", null),
+            new JdmColumnConfig(FIELD_NAME_DICKE3, "AI", null),
+            new JdmColumnConfig(FIELD_NAME_MATERIAL3, "AJ", null),
+
             //new JdmColumnConfig(FIELD_NAME_OBERFLAECHE3, "AK", null),
             //new JdmColumnConfig(FIELD_NAME_STRECKGRENZE3, "AL", null),
-            new JdmColumnConfig(FIELD_NAME_BAUTEIL4, "AM", new JdmComparerString()),
-            new JdmColumnConfig(FIELD_NAME_DICKE4, "AN", new JdmComparerDouble(0)),
-            new JdmColumnConfig(FIELD_NAME_MATERIAL4, "AO", new JdmComparerString()),
+
+            new JdmColumnConfig(FIELD_NAME_BAUTEIL4, "AM", null),
+            new JdmColumnConfig(FIELD_NAME_DICKE4, "AN", null),
+            new JdmColumnConfig(FIELD_NAME_MATERIAL4, "AO", null),
+
             //new JdmColumnConfig(FIELD_NAME_OBERFLAECHE4, "AP", null),
 
             //new JdmColumnConfig(VARIANT_NAME_PO684_LL, "CK", new JdmComparerString()),
@@ -302,15 +319,15 @@ namespace JoinningDataManager
             VARIANT_NAME_PA_GT3_RS_RL,
         };
 
-        public static Dictionary<string, Program.ChangeTypes> FieldNameVsChangeTypesMapTable = new()
-        {
-            { FIELD_NAME_X, Program.ChangeTypes.XyzChanged },
-            { FIELD_NAME_Y, Program.ChangeTypes.XyzChanged },
-            { FIELD_NAME_Z, Program.ChangeTypes.XyzChanged },
-            { FIELD_NAME_END_X, Program.ChangeTypes.XyzChanged },
-            { FIELD_NAME_END_Y, Program.ChangeTypes.XyzChanged },
-            { FIELD_NAME_END_Z, Program.ChangeTypes.XyzChanged },
-        };
+        //public static Dictionary<string, Program.ChangeTypes> FieldNameVsChangeTypesMapTable = new()
+        //{
+        //    { FIELD_NAME_X, Program.ChangeTypes.XyzChanged },
+        //    { FIELD_NAME_Y, Program.ChangeTypes.XyzChanged },
+        //    { FIELD_NAME_Z, Program.ChangeTypes.XyzChanged },
+        //    { FIELD_NAME_END_X, Program.ChangeTypes.XyzChanged },
+        //    { FIELD_NAME_END_Y, Program.ChangeTypes.XyzChanged },
+        //    { FIELD_NAME_END_Z, Program.ChangeTypes.XyzChanged },
+        //};
 
         public static string[] ContinuesProcessTypes = new[] //for continues start-x is used as x 
         {

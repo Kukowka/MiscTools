@@ -9,7 +9,7 @@ namespace JoinningDataManager;
 public class JdmDataReaderCsv
 {
     private static int LAST_FIELD_COLUMN_INDEX = 65; // index of title with name: "Sicherheitsklasse_Kleben"
-    private static string VW_ASSEMBLY_REGEX = @"[A-Z0-9]{3}\.[A-Z0-9]{3}\.[A-Z0-9]{3}\.[A-Z]*";
+    public static string VW_ASSEMBLY_REGEX = @"[A-Z0-9]{3}\.[A-Z0-9]{3}\.[A-Z0-9]{3}";
 
     public bool HaveVtaPointsUniqueNames(List<JdmRawVtaPoint> vtaPoints)
     {

@@ -48,7 +48,7 @@ namespace JoinningDataManager
             var vdlPoints = new List<JdmVdlPoint>();
             var usedRange = vdlExcel.Worksheets[sheetName].GetUsedCellRange(true);
 
-            for (int rowIndex = vdlStartRowIndex; rowIndex < usedRange.LastRowIndex; rowIndex++)
+            for (int rowIndex = vdlStartRowIndex; rowIndex <= usedRange.LastRowIndex; rowIndex++)
             {
                 var newPoint = GetVdlPointFromExcelRow(sheetName, vdlColumnConfig, vdlExcel, rowIndex);
                 if (newPoint is not null)

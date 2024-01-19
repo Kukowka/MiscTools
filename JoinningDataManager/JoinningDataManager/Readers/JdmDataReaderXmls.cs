@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text.RegularExpressions;
 using System.Xml.Serialization;
 
@@ -16,7 +17,7 @@ namespace JoinningDataManager
             {
                 var fileName = Path.GetFileNameWithoutExtension(xmlPath);
 
-                if (fileName.Equals("983.831.051___VER_002.0_20230424"))
+                if (fileName.Equals("983.800.701.___VER_003.1_20231208"))
                 {
 
                 }
@@ -28,6 +29,12 @@ namespace JoinningDataManager
 
                 var points = ReadVtaXml(xmlPath, fieldNames);
                 allPoints.AddRange(points);
+
+                var tmp = allPoints.FirstOrDefault(m => m.Name.Equals("983.800.701___-015-E2-002-L"));
+
+                if (tmp is not null)
+                {
+                }
             }
 
             return allPoints;

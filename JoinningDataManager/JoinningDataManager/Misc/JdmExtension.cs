@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
+using static JoinningDataManager.JdmConst;
 
 namespace JoinningDataManager
 {
@@ -20,8 +22,15 @@ namespace JoinningDataManager
 
                 if (!fieldNames.Contains(parameter.Name))
                     continue;
-                dict.Add(parameter.Name, parameter.Value);
+
+                var cleanVal = CleanParamValue(parameter.Name, parameter.Value);
+                dict.Add(parameter.Name, cleanVal);
             }
+
+            if(name.Equals("983.800.701___-015-E2-002-L"))
+            {
+            }
+
 
             foreach (VTATableElementPartPartParameter[] productParams in element.Parts)
             {
@@ -32,9 +41,22 @@ namespace JoinningDataManager
             if (dict.Count != fieldNames.Length)
                 throw new NotFiniteNumberException();
 
-
             return new JdmRawVtaPoint(name, dict, products);
         }
+
+        private static string CleanParamValue(string parameterName, string parameterValue)
+        {
+            if (parameterValue is null)
+                return null;
+
+            if (parameterName.Equals(FIELD_NAME_DICKE1) || parameterName.Equals(FIELD_NAME_DICKE2) || parameterName.Equals(FIELD_NAME_DICKE3) || parameterName.Equals(FIELD_NAME_DICKE4))
+                return parameterValue.Replace("mm", "");
+
+
+            return parameterValue;
+        }
+
+
 
 
         public static JdmProduct Convert2Product(this VTATableElementPartPartParameter[] productParams)
@@ -50,15 +72,8 @@ namespace JoinningDataManager
             return false;
         }
 
-        public static Program.ChangeTypes ConvertFiledName2ChangeType(string fieldName)
-        {
-            if (fieldName.Equals(JdmConst.FIELD_NAME_NAME))
-                throw new ArgumentOutOfRangeException(nameof(fieldName), "Field 'name' should not be compared");
-            if (JdmConst.FieldNameVsChangeTypesMapTable.ContainsKey(fieldName))
-                return JdmConst.FieldNameVsChangeTypesMapTable[fieldName];
+        public static bool ImprovedDoubleTryParse(this string inVal, out double outVal) => double.TryParse(inVal.Replace(",", "."), NumberStyles.Any, CultureInfo.InvariantCulture, out outVal);
 
-            return Program.ChangeTypes.ParamChanged;
-        }
 
         public static string ToCsvSafe(this string input) => input?.Replace(",", ".").Trim();
     }

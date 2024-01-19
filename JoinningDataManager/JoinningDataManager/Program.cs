@@ -18,7 +18,7 @@ namespace JoinningDataManager
         public static string VTA_CSVS_PATH = @"e:\PS_Coding\JoiningDataManager\InputData\63_PO455_Boxster_HDBT_VFF_Stern_KW50";
         //public static string VTA_CSVS_PATH = @"e:\PS_Coding\JoiningDataManager\InputData\63_PO455_Boxster_HDBT_VFF_Stern_KW50";
 
-        public static string VTA_EXPORT_PATH = @"e:\PS_Coding\JoiningDataManager\VTA_Export_20240116.xlsx";
+        public static string VTA_EXPORT_PATH = @"e:\PS_Coding\JoiningDataManager\VTA_Export_20240118.xlsx";
         //public static string VTA_EXPORT_PATH = @"e:\PS_Coding\JoiningDataManager\VTA_ExportTest_20240115.xlsx";
 
         //public static string VDL_EXCEL_PATH = @"e:\PS_Coding\JoiningDataManager\Verbindungsdatenliste_P992_983_Rev01_.xlsx";
@@ -31,7 +31,7 @@ namespace JoinningDataManager
         public static string VDL_EXCEL_SHEET_NAME = "Punktliste";
         public static int VDL_START_ROW_INDEX = 2; //zero based index
 
-        public static string RESULT_PATH = @"e:\PS_Coding\JoiningDataManager\PartUpdateChanges_20240116_Boxter.xlsx";
+        public static string RESULT_PATH = @"e:\PS_Coding\JoiningDataManager\PartUpdateChanges_20240119_Boxter2.xlsx";
         public static string PART_UPDATE_TAG = "34\\35";
         //public static string GetChangesReportPath() => RESULT_DIR + "Changes.csv";
         //public static string GetNewPointsReportPath() => RESULT_DIR + "NewPoints.xlsx";
@@ -40,19 +40,18 @@ namespace JoinningDataManager
         {
             SpreadsheetInfo.SetLicense(GEMBOX_LIC);
 
-            var variants = ReadVariants();
+            //var variants = ReadVariants();
             //ReadVtaPointsFromXmls(variants);
+
             var vdlPoints = ReadVdlPoints(VDL_EXCEL_PATH, VDL_EXCEL_SHEET_NAME, VDL_COLUMN_CONFIG, VDL_START_ROW_INDEX);
             var newVtaPoints = ReadVdlPoints(VTA_EXPORT_PATH, JdmVtaExcelExporter.VTA_EXPORT_SHEET_NAME, VDL_COLUMN_CONFIG, 1);
 
-            //var newVtaPoints = ReadVdlPoints(VDL_EXCEL_PATH, JdmVtaExcelExporter.VTA_EXPORT_SHEET_NAME, VDL_COLUMN_CONFIG, 1);
-
-            if (newVtaPoints.Any(m => m.Name.Equals("992.803.001___-031-D6-001-R")))
+            if (newVtaPoints.Any(m => m.Name.Equals("992.805.385___-031-H2-001-R")))
             {
             }
 
-            var compareRunner = new JdmCompareRunner(newVtaPoints, vdlPoints, VDL_COLUMN_CONFIG);
-            var reports = compareRunner.ComparePoints();
+            var compareRunner = new JdmCompareRunner();
+            var reports = compareRunner.ComparePoints(newVtaPoints, vdlPoints, VDL_COLUMN_CONFIG, PART_COMPARER);
 
             new JdmChangesExporter().ExportChanges2Excel(reports, RESULT_PATH, VDL_COLUMN_CONFIG);
         }
@@ -82,9 +81,6 @@ namespace JoinningDataManager
 
             var vdlReader = new JdmDataReaderVdlExcel();
             var vdlPoints = vdlReader.ExtractVdlPoints(vdlExcelPath, sheetName, vdlColumnConfig, vdlStartRowIndex);
-
-            //if (!vdlReader.HaveVdlPointsUniqueNames(vdlPoints))
-            //    throw new InvalidCastException();
 
             return vdlPoints;
         }
@@ -123,14 +119,14 @@ namespace JoinningDataManager
             new JdmVtaExcelExporter().ExportVta2Excel(VTA_EXPORT_PATH, vtaPoints, JdmConst.VDL_COLUMN_CONFIG);
         }
 
-        public enum ChangeTypes
-        {
-            New,
-            Deleted,
-            ParamChanged,
-            XyzChanged,
-            AssignedPartChanged,
-            PartPropertyChanged,
-        }
+        //public enum ChangeTypes
+        //{
+        //    New,
+        //    Deleted,
+        //    ParamChanged,
+        //    XyzChanged,
+        //    AssignedPartChanged,
+        //    PartPropertyChanged,
+        //}
     }
 }
