@@ -49,8 +49,6 @@ namespace AbbRapidPreUploader
             return false;
         }
 
-
-
         public string FixSyntax(string uploadFileContent, string modFilePath)
         {
             var result = _volvoTruckSyntaxFixer.CorrectSyntax();
@@ -113,36 +111,5 @@ namespace AbbRapidPreUploader
             splitted.SwapValues(2, 3);
             return splitted;
         }
-
-        //private string ReduceNrOfParamsInSpotData(string uploadFileContent)
-        //{
-        //    var splittedByWhiteLine = uploadFileContent.Split(new string[] { Environment.NewLine }, StringSplitOptions.None);
-
-        //    for (var index = 0; index < splittedByWhiteLine.Length; index++)
-        //    {
-        //        var line = splittedByWhiteLine[index];
-
-        //        if (HasTextWronSpotDef(line))
-        //            splittedByWhiteLine[index] = ReduceNrOfParamsInSpotDataInLine(line);
-        //    }
-
-        //    var result = string.Join(Environment.NewLine, splittedByWhiteLine);
-        //    return result;
-        //}
-
-        //private string ReduceNrOfParamsInSpotDataInLine(string line)
-        //{
-        //    var valueBeforeEqualSign = Regex.Match(line, SPOT_DATA_BEGIN_REG_EX).Value;
-        //    var orgInBracket = Regex.Match(line, VALUE_IN_BRACKET_REGEX).Value;
-
-
-        //    var paramsAsText = orgInBracket.Replace("[", "").Replace("];", "");
-
-        //    var splitted = paramsAsText.Split(',');
-
-        //    var result = valueBeforeEqualSign + "[" + string.Join(",", splitted.Take(4)) + "];";
-
-        //    return result;
-        //}
     }
 }

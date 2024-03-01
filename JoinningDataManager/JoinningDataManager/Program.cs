@@ -12,13 +12,13 @@ namespace JoinningDataManager
     {
         public static string GEMBOX_LIC = "SN-2023May23-OQ1MibKojfVvZoPCvWlB0q7iakOKFM4c0IZiRe2u605diDgqM17xjS0uBeCZXtREEREWQ71d6K3zkJXK1QXD/K5Z4AA==A";
 
-        public static string VTA_XMLS_PATH = @"e:\PS_Coding\JoiningDataManager\InputData\63_PO455_Boxster_HDBT_VFF_Stern_KW50";
+        public static string VTA_XMLS_PATH = @"e:\20240225\VTA";
 
         //public static string VTA_CSVS_PATH = @"e:\PS_Coding\JoiningDataManager\InputData\62_PO992_W23Q73_Bauteildaten_FDS_Verschiebung_Schweller";
         public static string VTA_CSVS_PATH = @"e:\PS_Coding\JoiningDataManager\InputData\63_PO455_Boxster_HDBT_VFF_Stern_KW50";
         //public static string VTA_CSVS_PATH = @"e:\PS_Coding\JoiningDataManager\InputData\63_PO455_Boxster_HDBT_VFF_Stern_KW50";
 
-        public static string VTA_EXPORT_PATH = @"e:\PS_Coding\JoiningDataManager\VTA_Export_20240118.xlsx";
+        public static string VTA_EXPORT_PATH = @"e:\20240226\VTA\VTA_Export_20240226.xlsx";
         //public static string VTA_EXPORT_PATH = @"e:\PS_Coding\JoiningDataManager\VTA_ExportTest_20240115.xlsx";
 
         //public static string VDL_EXCEL_PATH = @"e:\PS_Coding\JoiningDataManager\Verbindungsdatenliste_P992_983_Rev01_.xlsx";
@@ -40,20 +40,20 @@ namespace JoinningDataManager
         {
             SpreadsheetInfo.SetLicense(GEMBOX_LIC);
 
-            //var variants = ReadVariants();
-            //ReadVtaPointsFromXmls(variants);
+            var variants = ReadVariants();
+            ReadVtaPointsFromXmls(variants);
 
-            var vdlPoints = ReadVdlPoints(VDL_EXCEL_PATH, VDL_EXCEL_SHEET_NAME, VDL_COLUMN_CONFIG, VDL_START_ROW_INDEX);
-            var newVtaPoints = ReadVdlPoints(VTA_EXPORT_PATH, JdmVtaExcelExporter.VTA_EXPORT_SHEET_NAME, VDL_COLUMN_CONFIG, 1);
+            //var vdlPoints = ReadVdlPoints(VDL_EXCEL_PATH, VDL_EXCEL_SHEET_NAME, VDL_COLUMN_CONFIG, VDL_START_ROW_INDEX);
+            //var newVtaPoints = ReadVdlPoints(VTA_EXPORT_PATH, JdmVtaExcelExporter.VTA_EXPORT_SHEET_NAME, VDL_COLUMN_CONFIG, 1);
 
-            if (newVtaPoints.Any(m => m.Name.Equals("992.805.385___-031-H2-001-R")))
-            {
-            }
+            //if (newVtaPoints.Any(m => m.Name.Equals("992.805.385___-031-H2-001-R")))
+            //{
+            //}
 
-            var compareRunner = new JdmCompareRunner();
-            var reports = compareRunner.ComparePoints(newVtaPoints, vdlPoints, VDL_COLUMN_CONFIG, PART_COMPARER);
+            //var compareRunner = new JdmCompareRunner();
+            //var reports = compareRunner.ComparePoints(newVtaPoints, vdlPoints, VDL_COLUMN_CONFIG, PART_COMPARER);
 
-            new JdmChangesExporter().ExportChanges2Excel(reports, RESULT_PATH, VDL_COLUMN_CONFIG);
+            //new JdmChangesExporter().ExportChanges2Excel(reports, RESULT_PATH, VDL_COLUMN_CONFIG);
         }
 
         public static List<JdmVariantAssembly> ReadVariants()
@@ -61,8 +61,8 @@ namespace JoinningDataManager
             var readerVariantExcel = new JdmDataReaderVariantExcel();
             var variants = readerVariantExcel.ExtractVariants(VARIANT_EXCEL_PATH);
 
-            if (!readerVariantExcel.AreReadVariantsOk(variants))
-                throw new InvalidDataException();
+            //if (!readerVariantExcel.AreReadVariantsOk(variants))
+            //    throw new InvalidDataException();
 
             return variants;
         }
@@ -113,8 +113,11 @@ namespace JoinningDataManager
                 throw new ArgumentOutOfRangeException(nameof(VTA_XMLS_PATH), "Directory does not exists");
 
             var xmlReader = new JdmDataReaderXmls();
-            var variant = variants.First(m => m.VariantName.Equals(VARIANT_NAME_PO455_LL));
-            variant.RemoveUnusedAssemblies();
+            var variant = variants.First(m => m.VariantName.Equals(VARIANT_TOP_CAYMAN_LL));
+            if (!JdmDataReaderVariantExcel.IsVariantOk(variant))
+                throw new InvalidDataException();
+
+            //variant.RemoveUnusedAssemblies();
             var vtaPoints = xmlReader.ExtractVtaPointsFromXmls(VTA_XMLS_PATH, FIELD_NAMES, variant);
             new JdmVtaExcelExporter().ExportVta2Excel(VTA_EXPORT_PATH, vtaPoints, JdmConst.VDL_COLUMN_CONFIG);
         }

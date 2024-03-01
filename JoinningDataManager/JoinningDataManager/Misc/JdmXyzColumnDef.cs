@@ -12,4 +12,6 @@ public class JdmXyzColumnDef
     public string YEndColumnName { get; set; }
     public string ZEndColumnName { get; set; }
 
+    public double MaxAllowedDistance { get; } = 0;
+
 }

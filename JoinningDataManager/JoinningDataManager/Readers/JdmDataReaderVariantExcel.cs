@@ -1,6 +1,7 @@
 ﻿using GemBox.Spreadsheet;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace JoinningDataManager;
 
@@ -19,14 +20,11 @@ public class JdmDataReaderVariantExcel
             if (usedRange[1, columnIndex].ValueType == CellValueType.Null)
                 break;
 
+            var columnLetter = ExcelColumnCollection.ColumnIndexToName(columnIndex);
             var variantName = usedRange[1, columnIndex].StringValue;
             var assemblies = new List<string>();
 
-            if (variantName.Equals("PO455_LL"))
-            {
-            }
-
-            for (int rowIndex = 4; rowIndex < usedRange.LastRowIndex; rowIndex++)
+            for (int rowIndex = 4; rowIndex <= usedRange.LastRowIndex; rowIndex++)
             {
                 if (usedRange[rowIndex, columnIndex].ValueType == CellValueType.Null)
                     continue;
@@ -38,10 +36,13 @@ public class JdmDataReaderVariantExcel
 
                 assemblyName = assemblyName.Trim();
 
+
+
                 if (assemblyName.Equals("n.v."))
                     continue;
 
-                assemblies.Add(assemblyName);
+                var assemblyNr = Regex.Match(assemblyName, JdmVariantAssembly.ASSEMBLY_NR_REG_EX).Value;
+                assemblies.Add(assemblyNr);
             }
 
             results.Add(new JdmVariantAssembly(variantName, assemblies));
@@ -55,10 +56,16 @@ public class JdmDataReaderVariantExcel
     {
         foreach (var variant in variants)
         {
-            if (!JdmConst.VARIANT_NAMES.Contains(variant.VariantName))
-                return false;
+            if (!IsVariantOk(variant)) return false;
         }
 
+        return true;
+    }
+
+    public static bool IsVariantOk(JdmVariantAssembly variant)
+    {
+        if (!JdmConst.VARIANT_NAMES.Contains(variant.VariantName))
+            return false;
         return true;
     }
 }

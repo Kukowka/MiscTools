@@ -66,8 +66,6 @@ public class JdmVariantAssembly
         if (!VariantName.Equals(JdmConst.VARIANT_NAME_PO455_LL))
             throw new NotImplementedException();
 
-        Assemblies.Remove("992.803.092");
-        Assemblies.Remove("983.899.045.A");
-        Assemblies.Remove("983.831.051");
+
     }
 }

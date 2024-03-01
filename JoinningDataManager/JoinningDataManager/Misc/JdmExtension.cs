@@ -15,10 +15,18 @@ namespace JoinningDataManager
 
             string name = "";
 
+            int[] partOrder = null;
+
             foreach (var parameter in element.Parameters)
             {
                 if (parameter.Name.Equals("Element"))
                     name = parameter.Value;
+
+                if (parameter.Name.Equals("Fuegepaket"))
+                {
+                    var splitted = parameter.Value.Split(';');
+                    partOrder = splitted.Select(m => int.Parse(m)).ToArray();
+                }
 
                 if (!fieldNames.Contains(parameter.Name))
                     continue;
@@ -27,15 +35,18 @@ namespace JoinningDataManager
                 dict.Add(parameter.Name, cleanVal);
             }
 
-            if(name.Equals("983.800.701___-015-E2-002-L"))
-            {
-            }
-
+            var productCopy = new List<JdmProduct>();
 
             foreach (VTATableElementPartPartParameter[] productParams in element.Parts)
             {
                 var newProduct = productParams.Convert2Product();
-                products.Add(newProduct);
+                productCopy.Add(newProduct);
+            }
+
+            foreach (var partId in partOrder)
+            {
+                var matchingProduct = productCopy.First(m => m.Id.Equals(partId));
+                products.Add(matchingProduct);
             }
 
             if (dict.Count != fieldNames.Length)
@@ -52,7 +63,6 @@ namespace JoinningDataManager
             if (parameterName.Equals(FIELD_NAME_DICKE1) || parameterName.Equals(FIELD_NAME_DICKE2) || parameterName.Equals(FIELD_NAME_DICKE3) || parameterName.Equals(FIELD_NAME_DICKE4))
                 return parameterValue.Replace("mm", "");
 
-
             return parameterValue;
         }
 
@@ -62,7 +72,9 @@ namespace JoinningDataManager
         public static JdmProduct Convert2Product(this VTATableElementPartPartParameter[] productParams)
         {
             var name = productParams.First(m => m.Name.Equals("Part")).Value;
-            return new JdmProduct(name);
+            var idTxt = productParams.First(m => m.Name.Equals("Idx")).Value;
+            var id = int.Parse(idTxt);
+            return new JdmProduct(name, id);
         }
 
         public static bool EqualWithTolerance(this double val, double other, double tolerance)

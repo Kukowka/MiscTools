@@ -7,7 +7,7 @@ namespace JoinningDataManager;
 public class JdmVtaExcelExporter
 {
     private static string fieldVal;
-    public const string VTA_EXPORT_SHEET_NAME = "Vta export";
+    public const string VTA_EXPORT_SHEET_NAME = "Punktliste";
 
     public void ExportVta2Excel(string path, List<JdmRawVtaPoint> points, List<JdmColumnConfig> columnConfig)
     {
@@ -25,16 +25,16 @@ public class JdmVtaExcelExporter
         foreach (var config in columnConfig)
         {
             var columnIndex = ExcelColumnCollection.ColumnNameToIndex(config.VdlColumnName);
-            worksheet.Cells[0, columnIndex].SetValue(config.FieldName);
+            worksheet.Cells[0, columnIndex].SetValue(config.ExportVdlColumnName);
         }
 
         for (var index = 0; index < points.Count; index++)
         {
             var point = points[index];
 
-            //if (point.Name.Equals("983.800.701___-025-H2-002-R"))
-            //{
-            //}
+            if (point.Name.Equals("983.813.017___-007-A5-001-L"))
+            {
+            }
 
             foreach (var config in columnConfig)
             {

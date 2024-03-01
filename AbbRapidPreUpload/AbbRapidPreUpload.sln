@@ -1,21 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.32602.291
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34511.84
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VolvoTruckAbbRapidPreUploader", "AbbRapidPreUploader\VolvoTruckAbbRapidPreUploader.csproj", "{1F72D1B6-7BFC-446E-847B-73B9D57307A9}"
-	ProjectSection(ProjectDependencies) = postProject
-		{9A06BA3C-926B-4ED7-AF9E-E127693B4D5B} = {9A06BA3C-926B-4ED7-AF9E-E127693B4D5B}
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VolvoTruckAbbRapidPreUploaderTests", "AbbRapidPreUploaderTests\VolvoTruckAbbRapidPreUploaderTests.csproj", "{DB3A19EC-415F-48E1-A197-1A408901D704}"
-	ProjectSection(ProjectDependencies) = postProject
-		{9A06BA3C-926B-4ED7-AF9E-E127693B4D5B} = {9A06BA3C-926B-4ED7-AF9E-E127693B4D5B}
-	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TMS_Utils", "..\..\TMS_Tools\TMS_PS_add-ins\TMS_Utils_git\TMS_Utils\TMS_Utils.csproj", "{9A06BA3C-926B-4ED7-AF9E-E127693B4D5B}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TMS_UtilsTests", "..\..\TMS_Tools\TMS_PS_add-ins\TMS_Utils_git\TMS_UtilsTests\TMS_UtilsTests.csproj", "{6C8378AA-A3F4-419A-AD16-2E902EFBF53F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,14 +21,6 @@ Global
 		{DB3A19EC-415F-48E1-A197-1A408901D704}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DB3A19EC-415F-48E1-A197-1A408901D704}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DB3A19EC-415F-48E1-A197-1A408901D704}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9A06BA3C-926B-4ED7-AF9E-E127693B4D5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9A06BA3C-926B-4ED7-AF9E-E127693B4D5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9A06BA3C-926B-4ED7-AF9E-E127693B4D5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9A06BA3C-926B-4ED7-AF9E-E127693B4D5B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6C8378AA-A3F4-419A-AD16-2E902EFBF53F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6C8378AA-A3F4-419A-AD16-2E902EFBF53F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6C8378AA-A3F4-419A-AD16-2E902EFBF53F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6C8378AA-A3F4-419A-AD16-2E902EFBF53F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
