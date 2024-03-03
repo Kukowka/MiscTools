@@ -103,7 +103,7 @@ MODULE P2540Segment
   LOCAL PERS spotdata Sd_wp7620_30:=[00762030,0,0,0];
   LOCAL PERS spotdata Sd_wp7621_30:=[00762130,0,0,0];
   LOCAL PERS spotdata Sd_wp7622_30:=[00762230,0,0,0];
-  LOCAL PERS spotdata Sd_wp7623_30:=[00762330,0,0,0];
+  LOCAL PERS spotdata Sd_wp7623_30:=[00762330,0,0,0];          
   LOCAL PERS spotdata Sd_wp7624_30:=[00762430,0,0,0];
   LOCAL PERS spotdata Sd_wp16483_30:=[01648330,0,0,0];
   LOCAL PERS spotdata Sd_wp16389_30:=[01638930,0,0,0];

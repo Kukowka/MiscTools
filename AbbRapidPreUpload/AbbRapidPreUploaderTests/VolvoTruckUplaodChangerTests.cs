@@ -1,4 +1,7 @@
 ﻿using AbbRapidPreUploader;
+using AbbRapidPreUploaderTests;
+using NUnit.Framework;
+using NUnit.Framework.Internal;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -6,9 +9,6 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
-using AbbRapidPreUploaderTests;
-using NUnit.Framework;
-using NUnit.Framework.Internal;
 
 namespace AbbRapidPreUploader.Tests
 {
@@ -25,8 +25,6 @@ namespace AbbRapidPreUploader.Tests
                 yield return new TestCaseData("P2540SegmentOrg.mod", "P2540SegmentResult.mod");
                 yield return new TestCaseData("FML2H3SegmentOrg.mod", "FML2H3SegmentResult.mod");
                 yield return new TestCaseData("FH24BSegmentAOrg.mod", "FH24BSegmentResult.mod");
-
-
             }
         }
 
@@ -35,14 +33,14 @@ namespace AbbRapidPreUploader.Tests
         public void FixSyntaxTest(string inputInnerFilePath, string outputInnerFilePath)
         {
             // Arrange
-            var sut = new VolvoTruckUplaodChanger(new FileManager());
+            var sut = new VolvoTruckUplaodChanger();
             var inputFilePath = TestUtils.GetFilePathInTestProject(inputInnerFilePath);
             var fileContent = File.ReadAllText(inputFilePath);
             var expectedFilePath = TestUtils.GetFilePathInTestProject(outputInnerFilePath);
 
             // Act
             sut.ShouldFixSyntax(fileContent);
-            var result = sut.FixSyntax(fileContent, inputFilePath);
+            var result = sut.FixSyntax();
 
             //File.WriteAllText(expectedFilePath, result);
 
@@ -56,7 +54,7 @@ namespace AbbRapidPreUploader.Tests
         public void HasSpotDataDefsInFile()
         {
             // Arrange
-            var sut = new VolvoTruckUplaodChanger(new FileManager());
+            var sut = new VolvoTruckUplaodChanger();
 
             // Act
             var result = sut.ShouldFixSyntax(inputSpotData);
@@ -64,7 +62,5 @@ namespace AbbRapidPreUploader.Tests
             // Assert
             Assert.IsTrue(result);
         }
-
-
     }
 }
