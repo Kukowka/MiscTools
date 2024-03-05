@@ -1,0 +1,8 @@
+C:\Users\kukowka\source\repos\MiscTools\AbbRapidPsRewrorker\AbbRapidPreUpload\obj\Debug\AbbRapidPreUpload.csproj.AssemblyReference.cache
+C:\Users\kukowka\source\repos\MiscTools\AbbRapidPsRewrorker\AbbRapidPreUpload\obj\Debug\AbbRapidPreUpload.csproj.CoreCompileInputs.cache
+C:\Users\kukowka\source\repos\MiscTools\AbbRapidPsRewrorker\AbbRapidPreUpload\obj\Debug\AbbRapidPreUpload.exe
+C:\Users\kukowka\source\repos\MiscTools\AbbRapidPsRewrorker\AbbRapidPreUpload\obj\Debug\AbbRapidPreUpload.pdb
+C:\Program Files\Tecnomatix_16.0\eMPower\Robotics\OLP\Abb-Rapid\ExternalApplications\AbbRapidPreUpload.exe.config
+C:\Program Files\Tecnomatix_16.0\eMPower\Robotics\OLP\Abb-Rapid\ExternalApplications\AbbRapidPreUpload.exe
+C:\Program Files\Tecnomatix_16.0\eMPower\Robotics\OLP\Abb-Rapid\ExternalApplications\AbbRapidPreUpload.pdb
+C:\Users\kukowka\source\repos\MiscTools\AbbRapidPsRewrorker\AbbRapidPreUpload\obj\Debug\AbbRapidPreUpload.csproj.CopyComplete

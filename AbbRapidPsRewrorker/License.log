@@ -1,0 +1,138 @@
+    ======  ======
+    Time:8/9/2023 11:44:12 AM
+    Title: Initiate log
+    Message: 
+    Time:8/9/2023 11:44:12 AM
+    Title: Initiate InternalManager
+    Message: Trying to Validate License
+    Time:8/9/2023 11:44:12 AM
+    Title: Requesting EVT
+    Message: EVTP
+    Time:8/9/2023 11:44:12 AM
+    Title: Requesting Validation
+    Message: ILMValidate
+    Time:8/9/2023 11:44:12 AM
+    Title: LICENSER
+    Message: TRL MODE
+    Time:8/9/2023 11:44:12 AM
+    Title: LICENSER
+    Message: DS LEFT-405
+    Time:8/9/2023 11:44:12 AM
+    Title: LICENSER
+    Message: DT MARK PASSED-405.00:00:00
+    Time:8/9/2023 11:44:12 AM
+    Title: ILMValidate action
+    Message: LIC
+    Time:8/9/2023 11:44:13 AM
+    Title: LICENSER - TGO
+    Message: Start
+    Informational: Loaded 0 test records from the solution cache in 0.241 sec.
+    Informational: Test data store opened in 0.016 sec.
+    TableControl: QueueUpdate 8/9/2023 11:44:16 AM:935
+    TableControl: About to update entries 8/9/2023 11:44:16 AM:935
+    TableControl: Updating entries 8/9/2023 11:44:16 AM:936
+    TableControl: Updating entries (UI thread) 8/9/2023 11:44:16 AM:941
+    TableControl: Refreshing UI 8/9/2023 11:44:16 AM:941
+    Informational: ========== Starting test discovery ==========
+    Informational: NUnit Adapter 3.17.0.0: Test discovery starting
+    Informational: NUnit Adapter 3.17.0.0: Test discovery complete
+    Warning: No test is available in c:\kukowka\MiscTools\AbbRapidPreUpload\AbbRapidPreUploader\bin\Debug\AbbRapidPreUploader.exe. Make sure that test discoverer & executors are registered and platform & framework version settings are appropriate and try again.
+    Informational: ========== Test discovery finished: 0 Tests found in 4 sec ==========
+    Informational: ========== Starting test discovery ==========
+    Informational: ========== Test discovery skipped: All test containers are up to date ==========
+    TableControl: QueueUpdate 8/9/2023 1:37:13 PM:110
+    TableControl: About to update entries 8/9/2023 1:37:13 PM:221
+    TableControl: Updating entries 8/9/2023 1:37:13 PM:227
+    TableControl: Updating entries (UI thread) 8/9/2023 1:37:15 PM:603
+    TableControl: Refreshing UI 8/9/2023 1:37:15 PM:614
+    TableControl: QueueUpdate 8/9/2023 1:37:18 PM:54
+    TableControl: About to update entries 8/9/2023 1:37:18 PM:155
+    TableControl: Updating entries 8/9/2023 1:37:18 PM:155
+    TableControl: Updating entries (UI thread) 8/9/2023 1:37:18 PM:155
+    TableControl: Refreshing UI 8/9/2023 1:37:18 PM:155
+    TableControl: QueueUpdate 8/9/2023 1:38:28 PM:215
+    TableControl: About to update entries 8/9/2023 1:38:28 PM:326
+    TableControl: Updating entries 8/9/2023 1:38:28 PM:326
+    TableControl: Updating entries (UI thread) 8/9/2023 1:38:28 PM:389
+    TableControl: Refreshing UI 8/9/2023 1:38:28 PM:400
+    TableControl: QueueUpdate 8/9/2023 1:38:35 PM:943
+    TableControl: About to update entries 8/9/2023 1:38:36 PM:45
+    TableControl: Updating entries 8/9/2023 1:38:36 PM:45
+    TableControl: Updating entries (UI thread) 8/9/2023 1:38:36 PM:48
+    TableControl: Refreshing UI 8/9/2023 1:38:36 PM:62
+    TableControl: QueueUpdate 8/9/2023 1:51:32 PM:895
+    TableControl: About to update entries 8/9/2023 1:51:33 PM:10
+    TableControl: Updating entries 8/9/2023 1:51:33 PM:10
+    TableControl: Updating entries (UI thread) 8/9/2023 1:51:33 PM:10
+    TableControl: Refreshing UI 8/9/2023 1:51:33 PM:23
+    TableControl: QueueUpdate 8/9/2023 1:51:51 PM:162
+    TableControl: About to update entries 8/9/2023 1:51:51 PM:271
+    TableControl: Updating entries 8/9/2023 1:51:51 PM:271
+    TableControl: Updating entries (UI thread) 8/9/2023 1:51:51 PM:271
+    TableControl: Refreshing UI 8/9/2023 1:51:51 PM:282
+    TableControl: QueueUpdate 8/9/2023 1:51:56 PM:120
+    TableControl: About to update entries 8/9/2023 1:51:56 PM:230
+    TableControl: Updating entries 8/9/2023 1:51:56 PM:230
+    TableControl: Updating entries (UI thread) 8/9/2023 1:51:56 PM:231
+    TableControl: Refreshing UI 8/9/2023 1:51:56 PM:242
+    TableControl: QueueUpdate 8/9/2023 1:52:01 PM:626
+    TableControl: About to update entries 8/9/2023 1:52:01 PM:742
+    TableControl: Updating entries 8/9/2023 1:52:01 PM:742
+    TableControl: Updating entries (UI thread) 8/9/2023 1:52:01 PM:855
+    TableControl: Refreshing UI 8/9/2023 1:52:01 PM:870
+    TableControl: QueueUpdate 8/9/2023 1:53:25 PM:785
+    TableControl: About to update entries 8/9/2023 1:53:25 PM:886
+    TableControl: Updating entries 8/9/2023 1:53:25 PM:886
+    TableControl: Updating entries (UI thread) 8/9/2023 1:53:25 PM:890
+    TableControl: Refreshing UI 8/9/2023 1:53:25 PM:890
+    TableControl: QueueUpdate 8/9/2023 2:32:33 PM:440
+    TableControl: About to update entries 8/9/2023 2:32:33 PM:541
+    TableControl: Updating entries 8/9/2023 2:32:33 PM:541
+    TableControl: Updating entries (UI thread) 8/9/2023 2:32:33 PM:543
+    TableControl: Refreshing UI 8/9/2023 2:32:33 PM:543
+    TableControl: QueueUpdate 8/9/2023 2:32:39 PM:686
+    TableControl: About to update entries 8/9/2023 2:32:39 PM:797
+    TableControl: Updating entries 8/9/2023 2:32:39 PM:797
+    TableControl: Updating entries (UI thread) 8/9/2023 2:32:39 PM:798
+    TableControl: Refreshing UI 8/9/2023 2:32:39 PM:798
+    TableControl: QueueUpdate 8/9/2023 2:33:21 PM:0
+    TableControl: About to update entries 8/9/2023 2:33:21 PM:112
+    TableControl: Updating entries 8/9/2023 2:33:21 PM:112
+    TableControl: Updating entries (UI thread) 8/9/2023 2:33:21 PM:112
+    TableControl: Refreshing UI 8/9/2023 2:33:21 PM:112
+    TableControl: QueueUpdate 8/9/2023 2:45:57 PM:86
+    TableControl: About to update entries 8/9/2023 2:45:57 PM:187
+    TableControl: Updating entries 8/9/2023 2:45:57 PM:187
+    TableControl: Updating entries (UI thread) 8/9/2023 2:45:57 PM:561
+    TableControl: Refreshing UI 8/9/2023 2:45:57 PM:561
+    Informational: ========== Starting test discovery ==========
+    Informational: NUnit Adapter 3.17.0.0: Test discovery starting
+    Informational: NUnit Adapter 3.17.0.0: Test discovery complete
+    TableControl: QueueUpdate 8/9/2023 4:39:53 PM:198
+    TableControl: About to update entries 8/9/2023 4:39:53 PM:310
+    TableControl: Updating entries 8/9/2023 4:39:53 PM:310
+    TableControl: Updating entries (UI thread) 8/9/2023 4:39:53 PM:310
+    TableControl: Refreshing UI 8/9/2023 4:39:53 PM:311
+    Informational: NUnit Adapter 3.17.0.0: Test discovery starting
+    Informational: NUnit Adapter 3.17.0.0: Test discovery complete
+    Warning: No test is available in c:\kukowka\MiscTools\AbbRapidPreUpload\AbbRapidPreUploader\bin\Debug\AbbRapidPreUploader.exe. Make sure that test discoverer & executors are registered and platform & framework version settings are appropriate and try again.
+    Informational: ========== Test discovery finished: 3 Tests found in 5.2 sec ==========
+    Informational: ========== Starting test discovery ==========
+    Informational: NUnit Adapter 3.17.0.0: Test discovery starting
+    Informational: NUnit Adapter 3.17.0.0: Test discovery complete
+    Warning: No test is available in c:\kukowka\MiscTools\AbbRapidPreUpload\AbbRapidPreUploader\bin\Debug\AbbRapidPreUploader.exe. Make sure that test discoverer & executors are registered and platform & framework version settings are appropriate and try again.
+    Informational: ========== Test discovery finished: 0 Tests found in 1.7 sec ==========
+    Informational: ========== Starting test discovery ==========
+    Informational: NUnit Adapter 3.17.0.0: Test discovery starting
+    Informational: NUnit Adapter 3.17.0.0: Test discovery complete
+    Warning: No test is available in c:\kukowka\MiscTools\AbbRapidPreUpload\AbbRapidPreUploader\bin\Debug\AbbRapidPreUploader.exe. Make sure that test discoverer & executors are registered and platform & framework version settings are appropriate and try again.
+    Informational: ========== Test discovery finished: 0 Tests found in 1.7 sec ==========
+    Informational: ========== Starting test discovery ==========
+    Informational: ========== Test discovery skipped: All test containers are up to date ==========
+    Informational: ========== Starting test discovery ==========
+    Informational: ========== Test discovery skipped: All test containers are up to date ==========
+    TableControl: QueueUpdate 8/13/2023 2:37:49 PM:647
+    TableControl: About to update entries 8/13/2023 2:37:49 PM:648
+    TableControl: QueueUpdate 8/13/2023 2:37:49 PM:648
+    TableControl: Updating entries 8/13/2023 2:37:49 PM:648
+    2023-08-09-11.43.53.152-devenv-27792.tsv -> 2023-08-13-14.37.49.895-devenv-27792.tsv

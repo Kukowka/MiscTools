@@ -1,0 +1,7 @@
+C:\kukowka\MiscTools\AbbRapidPreUpload\AbbRapidPreUploader\obj\Release\VolvoTruckAbbRapidPreUploader.csproj.AssemblyReference.cache
+C:\kukowka\MiscTools\AbbRapidPreUpload\AbbRapidPreUploader\obj\Release\VolvoTruckAbbRapidPreUploader.csproj.CoreCompileInputs.cache
+C:\kukowka\MiscTools\AbbRapidPreUpload\AbbRapidPreUploader\obj\Release\AbbRapidPreUpload.exe
+C:\kukowka\MiscTools\AbbRapidPreUpload\AbbRapidPreUploader\obj\Release\AbbRapidPreUpload.pdb
+C:\kukowka\MiscTools\AbbRapidPreUpload\AbbRapidPreUploader\obj\Release\VolvoTruckAbbRapidPreUploader.csproj.CopyComplete
+C:\Users\kukowka\source\repos\MiscTools\AbbRapidPreUpload\AbbRapidPreUploader\obj\Release\VolvoTruckAbbRapidPreUploader.csproj.AssemblyReference.cache
+C:\Users\kukowka\source\repos\MiscTools\AbbRapidPreUpload\AbbRapidPreUploader\obj\Release\VolvoTruckAbbRapidPreUploader.csproj.CoreCompileInputs.cache

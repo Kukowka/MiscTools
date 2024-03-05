@@ -1,2 +1,0 @@
-\\fs125\eM_Planner_Data\SystemRoot\_RCS_Data\02_Customizations\ABB_Audi\V1_05\ExternalApplications\AbbRapidPreUpload.pdb
-\\fs125\eM_Planner_Data\SystemRoot\_RCS_Data\02_Customizations\ABB_Audi\V1_05\ExternalApplications\AbbRapidPreUpload.exe
