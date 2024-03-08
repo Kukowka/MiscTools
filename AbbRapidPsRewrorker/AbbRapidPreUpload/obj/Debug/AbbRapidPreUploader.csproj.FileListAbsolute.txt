@@ -1,7 +1,0 @@
-C:\kukowka\MiscTools\AbbRapidPreUpload\AbbRapidPreUploader\bin\Debug\AbbRapidPreUploader.exe.config
-C:\kukowka\MiscTools\AbbRapidPreUpload\AbbRapidPreUploader\bin\Debug\AbbRapidPreUploader.exe
-C:\kukowka\MiscTools\AbbRapidPreUpload\AbbRapidPreUploader\bin\Debug\AbbRapidPreUploader.pdb
-C:\kukowka\MiscTools\AbbRapidPreUpload\AbbRapidPreUploader\obj\Debug\AbbRapidPreUploader.csproj.AssemblyReference.cache
-C:\kukowka\MiscTools\AbbRapidPreUpload\AbbRapidPreUploader\obj\Debug\AbbRapidPreUploader.csproj.CoreCompileInputs.cache
-C:\kukowka\MiscTools\AbbRapidPreUpload\AbbRapidPreUploader\obj\Debug\AbbRapidPreUploader.exe
-C:\kukowka\MiscTools\AbbRapidPreUpload\AbbRapidPreUploader\obj\Debug\AbbRapidPreUploader.pdb
